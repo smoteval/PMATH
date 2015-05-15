@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage,url,amssymb,epsfig,color,xspace,enumerate}
+\usepackage{amsmath}
+
+\renewcommand{\thesubsection}{Problem \arabic{subsection}}
+
+\begin{document}
+\begin{center}
+  {\Large\bf University of Waterloo}\\
+  \vspace{3mm}
+         {\Large\bf Alebraic Geometry - Summer 2015}\\
+         \vspace{2mm}
+                {\Large\bf Assignment 1}\\
+                \vspace{3mm}
+                \textbf{Sina Motevalli 20455091}
+\end{center}
+\section*{Problem 1}
+
+\section*{Problem 2}
+\subsection*{Part a}
+I will use problem 1 here. Notice that the pints in $\mathbb{R}^2$ whose polar coordinates satisfy $r=\Theta$ intersect the line $y=0$ at every point $(2k\pi, 0)$ for all $k \in \mathbb{N}$. Thus By problem 1 the set is not algebraic.
+\subsection*{Part b}
+
+\subsection*{Part c}
+Claim: $V(x^2+z^2-1,y-1) =\{(\cos t,1,\sin t):t \in \mathbb{R}\} \subset \mathbb{R}^3$ \\
+Proof: We have
+$$V(x^2+z^2-1,y-1) = V(x^2+z^2-1) \cap V(y-1)$$
+Also, $V(y-1)$ is the set of points with $y=1$ and
+$V(x^2+z^2-1)$ is the cylinder of radius 1 around around $y$ axis. So the intersection of $V(y-1)$ and $V(x^2+z^2-1)$ is the circle of radius 1 centered at $(0,1,0)$ which can be paramtrized by $\{(\cos t,1,\sin t):t \in \mathbb{R}\}$. Thus the set is algebraic.
+\subsection*{Part d}
+Let $L=\{(1,t,0): t \in \mathbb{R}\}$ be the parametrization of a line. It's easy to see that the set in the question intersects $L$ at every point of the form $(1,2k\pi,o)$ for all $k \in \mathbb{Z}$. So by problem 1, the set is not algebraic.
+\subsection*{Part e}
+This is clearly $V(x^2+y^2+z^2+w^2-1)$ because the set is just $S^3$. Thus it is algebraic.
+\subsection*{Part f}
+
+
+\section*{Problem 3}
+We know from class that the only algebraic sets (Closed sets) on $\mathbb{R}$ are of one the following:
+\begin{enumerate}
+\item $\emptyset $
+\item $\mathbb{R}$
+\item Sets with finitely many points
+\end{enumerate}
+Now let $p,q \in \mathbb{R}$. 
+Let $U$ and $V$ be neighbours of $p$ and $q$ respectively. So the complement of each of $U$ and $V$ contains only finitely many points. Just pick a point $r \in \mathbb{R}$ that is not among the finitely many points in $U^{c} \cup V^{c}$. Then $r \in U \cup V$.
+Thus $U \cup V \not= \emptyset$.
+Hence Zariski topology on $\mathbb{R}$ is not housdorff.
+\\
+Note that we proved a stronger statement than the zariki topology not being housdorff, namely, that every two non-empty open sets intersect (with respect to zariski topology).
+
+\clearpage
+\section*{Problem 4}
+We know from class that a point $a \in \mathbb{A}^n$ as a set $\{a\}$ is an algebraic set. This is because given 
+$a=(a_1,...,a_n) \in \mathbb{A}^n$, we have 
+$V(x_1-a_1,x_2-a_2,...,x_n-a_n)=\{a\}$.
+\\
+So if $k$ is a finite field, every subset of $\mathbb{A}^n$ is a finite set and is therefore algebraic. This readily implies that every subset of $\mathbb{A}^n(k)$ is both open and closed. We also have that the Zariski topology is housdorff here because given two distinct points $p,q \in \mathbb{A}^n$, the sets $\{p\}$ and $\{q\}$ are open sets with no intersection.
+\section*{Problem 5}
+We just need to argue that the complement of the set of $n \times n$ invertible matrcies is an algebraic set. In other words we need to show that the set of non-invertible matrcies is an alebraic set. This can be easily achieved because non-invertible matrcies are exactly the matrcies with 0 determinent. So the set of non-invertible matrcies is $V(\det_n)$ and thus is an algebraic set.
+\section*{Problem 6}
+Let $S_1 \subset k[x_1,...x_n]$ and $S_2 \subset k[y_1,..,y_m]$ be finite sets such that $X=V(S_1)$ and $Y=V(S_2)$. (This is possible since $X$ and $Y$ are algebraic sets). \\
+For each $f \in k[x_1,...x_n]$ we define a polynomial
+$f' \in k[x_1,...,x_n,y_1,...,y_m]$ such that
+$$f'(a_1,...,a_n,b_1,...,b_m)=f(a_1,...,a_n)$$ for any 
+$b_1,...,b_m \in \mathbb{A}^m$. \\
+Similarly 
+for each $g \in k[y_1,...y_m]$ we define a polynomial
+$g' \in k[x_1,...,x_n,y_1,...,y_m]$ such that
+$$g'(a_1,...,a_n,b_1,...,b_m)=g(b_1,...,b_m)$$ for any 
+$a_1,...,a_n \in \mathbb{A}^n$. \\
+Now let $S_1'$ and $S_2'$ be $S_1$ and $S_2$ with every polynomial in each set extended to a polynomial in $k[x_1,...,x_n,y_1,...,y_m]$ in the manner described above. \\
+Claim: $V(S_1 \cup S_2)=V \times W$. \\
+Proof: Let $a \in V(S_1' \cup S_2')$. So for any $f' \in S_1', f'(a)=0$, so $f(a)=0$ implying $a \in V(S_1)=V$.
+Also for any $g' \in S_2', g'(a)=0$, so $g(a)=0$ implying that $a \in V(S_2)=W$. Hence $a \in V \times W$ proving
+$V(S_1 \cup S_2) \subset V \times W$. \\
+Let $a=(a_1,...,a_n,b_1,...,b_m) \in V \times W$. Let
+$f' \in S_1' \cup S_2'$. We have the following cases:
+\begin{enumerate}
+\item[($f' \in S_1'$)] 
+In this case $f'(a_1,...,a_n,b_1,...,b_m)=f(a_1,...,a_n)=0$
+\item[($f' \in S_2'$)] 
+In this case $f'(a_1,...,a_n,b_1,...,b_m)=f(b_1,...,b_m)=0$
+\end{enumerate}
+Thus $a \in V(S_1' \cup S_2')$ proving $
+V \times W \subset V(S_1' \cup S_2')$.
+ 
+\clearpage 
+\section*{Problem 7}
+\subsection*{Part a}
+As I mentioned before in this assignment, the closed sets on the affine line are $\mathbb{A}^1$ or $\emptyset$ or a finite set of points. Let $X=\{a_1,...,a_k\}$ and $Y=\{b_1,...,b_m\}$ be closed sets in $\mathbb{A}^1$. 
+Then 
+$$A \times B = \{(a,b): a \in \{a_1,...,a_k\}, b \in \{b_1,...b_m\} \}$$ 
+
+$$A \times \mathbb{A}^1  = \{(a,b): a \in \{a_1,...,a_k\}, b \in \mathbb{A}^1 \}$$ 
+
+$$ \mathbb{A}^1 \times A  = \{(a,b): a \in \mathbb{A}, b \in \{a_1,...,a_n\} \}$$
+So the closed sets in the Zariski topology of $\mathbb{A}^1 \times \mathbb{A}^1$ are
+\begin{enumerate}
+\item $\emptyset$
+\item $\mathbb{A}^1 \times \mathbb{A}^1$
+\item Finite sets
+\item Finite collection of vertical lines
+\item Finite collection of horizontal lines
+\end{enumerate}
+\subsection*{Part b}
+
+
+
+\end{document}
