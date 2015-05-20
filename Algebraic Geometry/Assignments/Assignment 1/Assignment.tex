@@ -21,6 +21,7 @@
 \subsection*{Part a}
 I will use problem 1 here. Notice that the pints in $\mathbb{R}^2$ whose polar coordinates satisfy $r=\Theta$ intersect the line $y=0$ at every point $(2k\pi, 0)$ for all $k \in \mathbb{N}$. Thus By problem 1 the set is not algebraic.
 \subsection*{Part b}
+The set simply represents the circle of radius $\frac{1}{2}$ centered at $(\frac{1}{2},0)$. So it is the zero set of the polynomial $(x-\frac{1}{2})^2+y^2-\frac{1}{4}$. Thus the set is algebraic.
 
 \subsection*{Part c}
 Claim: $V(x^2+z^2-1,y-1) =\{(\cos t,1,\sin t):t \in \mathbb{R}\} \subset \mathbb{R}^3$ \\
@@ -29,11 +30,12 @@ $$V(x^2+z^2-1,y-1) = V(x^2+z^2-1) \cap V(y-1)$$
 Also, $V(y-1)$ is the set of points with $y=1$ and
 $V(x^2+z^2-1)$ is the cylinder of radius 1 around around $y$ axis. So the intersection of $V(y-1)$ and $V(x^2+z^2-1)$ is the circle of radius 1 centered at $(0,1,0)$ which can be paramtrized by $\{(\cos t,1,\sin t):t \in \mathbb{R}\}$. Thus the set is algebraic.
 \subsection*{Part d}
-Let $L=\{(1,t,0): t \in \mathbb{R}\}$ be the parametrization of a line. It's easy to see that the set in the question intersects $L$ at every point of the form $(1,2k\pi,o)$ for all $k \in \mathbb{Z}$. So by problem 1, the set is not algebraic.
+Let $L=\{(1,t,0): t \in \mathbb{R}\}$ be the parametrization of a line. It's easy to see that the set in the question intersects $L$ at every point of the form $(1,2k\pi,0)$ for all $k \in \mathbb{Z}$. So by problem 1, the set is not algebraic.
 \subsection*{Part e}
 This is clearly $V(x^2+y^2+z^2+w^2-1)$ because the set is just $S^3$. Thus it is algebraic.
 \subsection*{Part f}
-
+First note that there is a ring homomorphism $ \phi: \mathbb{R}^4 \rightarrow \mathbb{C}^2$ with
+$\phi(x,y,z,w)=(x+iy,z+iw)$. 
 
 \section*{Problem 3}
 We know from class that the only algebraic sets (Closed sets) on $\mathbb{R}$ are of one the following:
@@ -49,13 +51,12 @@ Hence Zariski topology on $\mathbb{R}$ is not housdorff.
 \\
 Note that we proved a stronger statement than the zariki topology not being housdorff, namely, that every two non-empty open sets intersect (with respect to zariski topology).
 
-\clearpage
 \section*{Problem 4}
 We know from class that a point $a \in \mathbb{A}^n$ as a set $\{a\}$ is an algebraic set. This is because given 
 $a=(a_1,...,a_n) \in \mathbb{A}^n$, we have 
 $V(x_1-a_1,x_2-a_2,...,x_n-a_n)=\{a\}$.
 \\
-So if $k$ is a finite field, every subset of $\mathbb{A}^n$ is a finite set and is therefore algebraic. This readily implies that every subset of $\mathbb{A}^n(k)$ is both open and closed. We also have that the Zariski topology is housdorff here because given two distinct points $p,q \in \mathbb{A}^n$, the sets $\{p\}$ and $\{q\}$ are open sets with no intersection.
+So if $k$ is a finite field, every subset of $\mathbb{A}^n$ is a finite set and is therefore algebraic. This readily implies that every subset of $\mathbb{A}^n(k)$ is both open and closed (because the complement of every set is finite and therefore closed). We also have that the Zariski topology is housdorff here because given two distinct points $p,q \in \mathbb{A}^n$, the sets $\{p\}$ and $\{q\}$ are open sets with no intersection.
 \section*{Problem 5}
 We just need to argue that the complement of the set of $n \times n$ invertible matrcies is an algebraic set. In other words we need to show that the set of non-invertible matrcies is an alebraic set. This can be easily achieved because non-invertible matrcies are exactly the matrcies with 0 determinent. So the set of non-invertible matrcies is $V(\det_n)$ and thus is an algebraic set.
 \section*{Problem 6}
@@ -104,6 +105,7 @@ So the closed sets in the Zariski topology of $\mathbb{A}^1 \times \mathbb{A}^1$
 \item Finite collection of horizontal lines
 \end{enumerate}
 \subsection*{Part b}
+We have that $V(x-y)$ is a closed set in the zariski topology of $\mathbb{A}^2$. But it is not a closed set in thetopology product zariski topology $\mathbb{A}^1 \times \mathbb{A}^1$ as we can see from the previous part of the problem.
 
 
 

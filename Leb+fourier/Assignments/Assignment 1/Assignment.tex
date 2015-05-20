@@ -9,12 +9,110 @@
 \begin{center}
   {\Large\bf University of Waterloo}\\
   \vspace{3mm}
-         {\Large\bf Course - Summer 2015}\\
+         {\Large\bf  - Summer 2015}\\
          \vspace{2mm}
-                {\Large\bf Assignment #}\\
+                {\Large\bf Assignment 1}\\
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
+\section*{Problem 1}
+\subsection*{Part a}
+\subsection*{Part b}
+The closed unit ball clearly contains the points of the form
+$x_n=(0,0,...,1,0,0,0,...)$ (1 is on the $n$th position and everything else is 0). 
+So the distance between any two of these points is $2^{\frac{1}{p}}$. Thus this sequence has no converging subsequesnce (because no subsequence is couchy). Hence the closed unit ball is not compact in $l^p$.
+\subsection*{Part c}
+Let $S=\{(q_n)_{n=1}^{\infty} : q_n \in \mathbb{Q} \ \
+and \ \ \exists N \in \mathbb{N} \ \ with \ \
+q_n=0, \forall n \ge N \ \ and \ \
+||(q_n)||_p < \infty\}$. \\
+Claim: $S$ is dense in $l^p$.\\
+Proof: Let $(x_n)_{n=1}^{\infty} \in l^p$. 
+Let $\epsilon > 0$. Let $N \in \mathbb{N}$ such that
+$\sum_{n=N}^{\infty} |x_n|^p < \frac{\epsilon}{2}$.
+\\
+For each $i \in \{1,2,...,N-1\}$ find $q_i \in \mathbb{Q}$ such that $|q_i-x_i|^p < \frac{\epsilon}{2(N-1)}$. \\
+Now consider the sequence
+$(q_1,q_2,...,q_{N-1},0,0,0,0,.....)$. Now we compute the difference between the two sequences in $l^p$:
+\begin{eqnarray*}
+(||(q_n)-(x_n)||_p)^p &=& 
+\sum_{i=1}^{N-1} |q_i-x_i|^p + \sum_{i=N}^{\infty}
+|q_i-x_i|^p
+\\ &=&
+\sum_{i=1}^{N-1} |q_i-x_i|^p + \sum_{i=N}^{\infty}
+|x_i|^p
+\\ & < &
+\frac{\epsilon}{2} + \frac{\epsilon}{2}
+\\ &=&
+\epsilon
+\end{eqnarray*}
+Thus $||(q_n)-(x_n)||_p < \epsilon^p$, but since $\epsilon$ was arbitrary and $p$ is a constant,$S$ is desne in $l^p$.
+\section*{Problem 2}
+\subsection*{Part a}
+Let $A_n=[a,b-\frac{1}{n}]$. So We have:
+$A_1 \subset A_2 \subset ... \subset \cup_{n=1}^{\infty}
+A_n=[a,b)$. \\
+By the continuity of measure we have:
+\begin{eqnarray*}
+m([a,b)) &=& \lim_{n \rightarrow \infty} m(A_n)
+\\ &=&
+\lim_{n \rightarrow \infty} m([a,b-\frac{1}{n}])
+\\ &=&
+\lim_{n \rightarrow \infty} b-\frac{1}{n}-a
+\\ &=&
+b-a
+\end{eqnarray*}
+\subsection*{Part b}
+Let $A \subset \mathbb{R}$ be a lebesgue measurable set.
+Let $t \in \mathbb{R}$. Need to show $A+t$ islebesgue measurabel. \\
+Let $E \subset \mathbb{R}$. Since $A$ is measurable, we have
+\begin{eqnarray}
+m^*(E)=m^*(E \cap A)+m^*(E \cap A^c)
+\end{eqnarray}
+We have:
+\begin{eqnarray*}
+x \in E \cap A+t &\Longleftrightarrow &
+x \in E \ \ and \ \ x \in A+t
+\\ &\Longleftrightarrow &
+x \in E \ \ and \ \ x-t \in A
+\\ &\Longleftrightarrow &
+x-t \in E-t \ \ and \ \ x-t \in A
+\\ &\Longleftrightarrow &
+x-t \in (E-t) \cap A
+\\ &\Longleftrightarrow &
+x \in (E-t \cap A) + t
+\end{eqnarray*}
+So $E \cap A+t = [(E-t) \cap A]+t$. Thus,
+$$m^*(E \cap A+t)=m^*([(E-t) \cap A]+t)=m^*((E-t) \cap A)$$.
+By a similar argument we get
+$E \cap (A+t)^c = [(E-t) \cap A^c]+t$. Thus, 
+$$m^*(E \cap (A+t)^c)=m^*([(E-t) \cap A^c]+t)=m^*((E-t) \cap A^c)$$.
+So we have:
+\begin{eqnarray*}
+m^*(E \cap (A+t)^c)+m^*(E \cap A+t) &=&
+m^*((E-t) \cap A^c)+m^*((E-t) \cap A) \\ &=&
+m^*(E-t) \\ &=&
+m^*(E)
+\end{eqnarray*}
+Hence $A+t$ is lebesgue measurable.
+
+\clearpage
+\section*{Problem 3}
+\section*{Problem 4}
+Let $X \subset \mathbb{R}$ be open. Let $X \cap Q =\{p_1,p_2,...\}$.
+For every $i \in \mathbb{N}$, let $B_i$ be an open ball containing $p_i$ such that $B_i \subset X$ (possible since $X$ is open). \\
+Claim:$X= \cup_{i=1}^{\infty} B_i$ \\
+Proof: It is clear that $\cup_{i=1}^{\infty} B_i \subset X$ because every $B_i$ is inside $X$. So I prove the other inclusion. 
+Let $x \in X $.
+\section*{Problem 5}
+\subsection*{Part a}
+Let $C_0=[0,1]$. We define $C_n$ recursively for $n \in \mathbb{N}$ as follows: \\
+$C_n$ is defined as every interval of $C_{n-1}$ with the open middle third of each interval removed. \\
+So $C_n$ is $2^{n-1}$ intervals of length $\frac{2^{n-1}}{3^n}$.
+Now we have:
+$C=\cap_{n=0}^{\infty} C_n \subset ... \subset C_2 \subset C_1 \subset C_0$. \\
+By downward continuity of measure, we have:
+\subsection*{Part b}
 
 
 \end{document}
