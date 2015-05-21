@@ -16,7 +16,17 @@
                 \textbf{Sina Motevalli 20455091}
 \end{center}
 \section*{Problem 1}
+We assume $L=V(x_2-(a_2x_1-b_2),x_3-(a_3x_1-b_3),...,x_n-(a_nx_1-b_n))$.
+Since $L \not\subset X$, $X \not= \mathbb{A}^n$. So there exist a non-zero polynomial $F \in k[x_1,...,x_n]$ such that $X \subset V(F)$. Assume for a contradiction that $X \cap L$ is an infinite set. So $L \cap V(F)$ is an infinite set. We have:
+\begin{eqnarray*}
+L \cap V(F) &=&
+V(x_2-(a_2x_1-b_2),x_3-(a_3x_1-b_3),...,x_n-(a_nx_1-b_n)) \cap V(F)
+\\ &=&
+V(F(x_1,a_2x_1-b_2,...,a_nx_1-b_n)) \in k[x_1]  \ \ since \ \ \ x_i-(a_ix_1-b_i)=0
+\end{eqnarray*}  
+So $L \cap V(F)$ is the zero set of some polynomial in one variable, but there can only be finitely many points in such a set. Contradiction.
 
+\clearpage
 \section*{Problem 2}
 \subsection*{Part a}
 I will use problem 1 here. Notice that the pints in $\mathbb{R}^2$ whose polar coordinates satisfy $r=\Theta$ intersect the line $y=0$ at every point $(2k\pi, 0)$ for all $k \in \mathbb{N}$. Thus By problem 1 the set is not algebraic.
@@ -32,11 +42,13 @@ $V(x^2+z^2-1)$ is the cylinder of radius 1 around around $y$ axis. So the inters
 \subsection*{Part d}
 Let $L=\{(1,t,0): t \in \mathbb{R}\}$ be the parametrization of a line. It's easy to see that the set in the question intersects $L$ at every point of the form $(1,2k\pi,0)$ for all $k \in \mathbb{Z}$. So by problem 1, the set is not algebraic.
 \subsection*{Part e}
-This is clearly $V(x^2+y^2+z^2+w^2-1)$ because the set is just $S^3$. Thus it is algebraic.
+This is clearly $V(x^2+y^2+z^2+w^2-1)$ because the set is just $S^3$ (unit 3-shere). Thus it is algebraic.
 \subsection*{Part f}
-First note that there is a ring homomorphism $ \phi: \mathbb{R}^4 \rightarrow \mathbb{C}^2$ with
-$\phi(x,y,z,w)=(x+iy,z+iw)$. 
+We know that there is a ring homomorphism between $\mathbb{R}^4$ to $\mathbb{C}^2$. This ring homomorphism, by definition, carries zero sets from $\mathbb{R}^4$ to
+$\mathbb{C}^2$. We proved in the previous part that $\{v \in \mathbb{R}^4: |v|=1\}$ is the zero set of the polynomial $x^2+y^2+z^2+w^2-1$. But if $z=x+iy$ and $w=z+it$, then $x^2+y^2+z^2+t^2=1 \Rightarrow |z|^2+|w|^2=1$. So this must be an algebraic set.
 
+
+\clearpage
 \section*{Problem 3}
 We know from class that the only algebraic sets (Closed sets) on $\mathbb{R}$ are of one the following:
 \begin{enumerate}
@@ -59,6 +71,8 @@ $V(x_1-a_1,x_2-a_2,...,x_n-a_n)=\{a\}$.
 So if $k$ is a finite field, every subset of $\mathbb{A}^n$ is a finite set and is therefore algebraic. This readily implies that every subset of $\mathbb{A}^n(k)$ is both open and closed (because the complement of every set is finite and therefore closed). We also have that the Zariski topology is housdorff here because given two distinct points $p,q \in \mathbb{A}^n$, the sets $\{p\}$ and $\{q\}$ are open sets with no intersection.
 \section*{Problem 5}
 We just need to argue that the complement of the set of $n \times n$ invertible matrcies is an algebraic set. In other words we need to show that the set of non-invertible matrcies is an alebraic set. This can be easily achieved because non-invertible matrcies are exactly the matrcies with 0 determinent. So the set of non-invertible matrcies is $V(\det_n)$ and thus is an algebraic set.
+
+\clearpage
 \section*{Problem 6}
 Let $S_1 \subset k[x_1,...x_n]$ and $S_2 \subset k[y_1,..,y_m]$ be finite sets such that $X=V(S_1)$ and $Y=V(S_2)$. (This is possible since $X$ and $Y$ are algebraic sets). \\
 For each $f \in k[x_1,...x_n]$ we define a polynomial
@@ -105,7 +119,7 @@ So the closed sets in the Zariski topology of $\mathbb{A}^1 \times \mathbb{A}^1$
 \item Finite collection of horizontal lines
 \end{enumerate}
 \subsection*{Part b}
-We have that $V(x-y)$ is a closed set in the zariski topology of $\mathbb{A}^2$. But it is not a closed set in thetopology product zariski topology $\mathbb{A}^1 \times \mathbb{A}^1$ as we can see from the previous part of the problem.
+We have that $V(x-y)$ is a closed set in the zariski topology of $\mathbb{A}^2$. But it is not a closed set in the product zariski topology $\mathbb{A}^1 \times \mathbb{A}^1$ as we can see from the previous part of the problem.
 
 
 
