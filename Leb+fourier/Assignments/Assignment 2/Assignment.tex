@@ -9,12 +9,56 @@
 \begin{center}
   {\Large\bf University of Waterloo}\\
   \vspace{3mm}
-         {\Large\bf Course - Summer 2015}\\
+         {\Large\bf Pmath 450 - Summer 2015}\\
          \vspace{2mm}
-                {\Large\bf Assignment #}\\
+                {\Large\bf Assignment 2}\\
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
+\section*{Problem 1}
+\subsection*{Part a}
+Let $E_1$ and $E_2$ be measurable sets. 
+We have: $E_1 \cup E_2 = E_1 \cup (E_2 \setminus (E_1 \cap E_2))$. \\
+So we have:
+\begin{eqnarray*}
+m(E_1 \cup E_2) &=& m(E_1 \cup (E_2 \setminus (E_1 \cap E_2)))
+\\ &=&
+m(E_1)+m((E_2 \setminus (E_1 \cap E_2)))
+\ \  since \ \ E_1 \cap (E_2 \setminus (E_1 \cap E_2)) =\emptyset
+\\ &=&
+m(E_1)+m(E_2)-m(E_1 \cap E_2)
+\end{eqnarray*}
+Thus $m(E_1 \cup E_2)+m(E_1 \cap E_2)=m(E_1)+m(E_2)$.
+\subsection*{Part b}
+Let $\alpha \in \mathbb{R}$. We have:
+\begin{eqnarray}
+\{x : \sup f_n \le \alpha\} &=& \bigcap_{n=1}^{\infty} \{x:f_n \le \alpha\}
+\\
+\{x : \inf f_n < \alpha\} &=& \bigcup_{n=1}^{\infty} \{x:f_n<\alpha\}
+\end{eqnarray}
+Since $f_n$'s are measurable and countable union and countable intersection of measurable sets are measurable, by (1) and (2), $\sup f_n$ and $\inf f_n$ are measurable.
+\subsection*{Part c}
+Since $f=g$ a.e, $h=f-g=0$ a.e. Since $f$ and $g$ are continuous, $h=f-g$ is conitunous. Let $E=\{x:h(x) \not=0\}$. We know that $m(E)=0$. Assume for a contradiction that $E \not= \emptyset$.
+Let $p \in E$. There exist $\delta >0$ such that
+$(p-\frac{\delta}{2},p+\frac{\delta}{2}) \cap E = \{p\}$, otherwise $E$ contains an interval and it's measure cannot be zero.
+Let $0 < \epsilon < |f(p)|$. Since $h$ is continuous, there exist $\delta' >0$ such that if $|x-y| < \delta'$, $|f(x)-f(y)| < \epsilon$. Let $\delta''=\min \{\delta , \delta' \}$. Choose $x \in (p-\frac{\delta''}{2},p+\frac{\delta''}{2})$. Note that $|p-x| < \delta'' \le \delta'$, but $|f(p)-f(x)|=|f(p)| < \epsilon < |f(p)|$
+which is a contradiction. So $E=\emptyset$ \\
+Thus $h=0$ everywhere implying $f=g$ everywhere.
+
+\clearpage
+\section*{Problem 2}
+\subsection*{Part a}
+Let $\alpha \in \mathbb{R}$.
+Let $(q_n)_{n=1}^{\infty} \in (-\infty,b)$ be a sequence such that each $q_n \in \mathbb{Q}$ and $q_n \rightarrow \alpha$.
+We have:
+\begin{eqnarray*}
+\{x:f(x) < \alpha\} &=&
+\bigcup_{n=1}^{\infty} \{x:f(x)<q_n\}
+\end{eqnarray*}  
+Since each $\{x:f(x)<q_n\}$ and a countable unioun of measurable sets is measurable, $\{x:f(x) < \alpha\}$ is measurable. Thus $f$ is measurable. 
+\subsection*{Part b}
+
+
 
 
 \end{document}
