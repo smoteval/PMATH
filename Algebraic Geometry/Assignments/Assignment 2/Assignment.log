@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.19)  25 MAY 2015 16:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.19)  4 JUN 2015 10:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -241,20 +241,41 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-(./Assignment.aux) ) 
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+] [3
+
+] [4
+
+]
+Overfull \hbox (2.87099pt too wide) in paragraph at lines 147--153
+\OT1/cmr/m/n/12 Let $\OML/cmm/m/it/12 Y$ \OT1/cmr/m/n/12 be a sub-va-ri-ety of 
+$\OML/cmm/m/it/12 X$\OT1/cmr/m/n/12 . By prob-lem 5 and 6(b) we know that the i
+deal of $\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x[]; :::; x[]\OT1/
+cmr/m/n/12 ]\OML/cmm/m/it/12 =I\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/
+12 )$
+ []
+
+[5
+
+] [6
+
+] [7
+
+] (./Assignment.aux) ) 
 Here is how much of TeX's memory you used:
- 2583 strings out of 493117
- 34625 string characters out of 6135432
- 95028 words of memory out of 5000000
- 6001 multiletter control sequences out of 15000+600000
+ 2582 strings out of 493117
+ 34619 string characters out of 6135432
+ 98028 words of memory out of 5000000
+ 6000 multiletter control sequences out of 15000+600000
  9803 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,5n,26p,389b,123s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
+ 38i,5n,26p,564b,123s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cm
@@ -262,10 +283,10 @@ r8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
 pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb>
-Output written on Assignment.pdf (2 pages, 90068 bytes).
+Output written on Assignment.pdf (7 pages, 127711 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

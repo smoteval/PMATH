@@ -19,20 +19,189 @@
 \subsection*{Part a}
 Let $X$ be an irreducible algebraic set. Let $U \subset X$ be Zariski open. Let $V$ be the closure of $U$. Assume for a contradiction that $X \not= V$ (ie $U$ is not dense). Then we have: $X=V \cup U^c $, but as $U$ is open $U^c$ is closed and $V$ is also closed, Thus $X$ is reducible. Contradiction.
 \subsection*{Part b}
-Consider the reducible algebraic set $X=<x^2-1>=\{1,-1\}$ in $\mathbb{R}^2$. Then in the induced Zariski topology the set $\{1\}$ is both open and closed and therefore is not dense in $X$.
+Let $X$ be an irreducible algebraic set. Let $U,V \subset X$ be non-empty open subsets.
+Assume for a contradiction that $U \cap V = \emptyset$, this implies that $(X \cap U^c) \cup (X \cap V^c)=X$. But this contradicts $X$ being irreducible because $U^c$
+and $V^c$ are closed and therefore $(X \cap U^c)$ and $(X \cap V^c)$ are closed in the induced topology.
+\subsection*{Part c}
+Consider the reducible algebraic set $X=V(<x^2-1>)=\{1,-1\}$ in $\mathbb{R}^2$. Then in the induced Zariski topology, the set $\{1\}$ is both open and closed and therefore is not dense in $X$. Also $\{1\} \cap \{-1\}=\emptyset$ and both $\{1\}$ and $\{-1\}$ are non-empty open sets.
 \section*{Problem 2}
+Let $E$ be the set of points in $\mathbb{R}^2$ whose polar coordinate satisfy $r=\theta$. \\
+It is sufficient to show that if $p(x,y) \in \mathbb{R}[x,y]$ is a polynomial that vanishes on $E$, then $p$ is identically $0$. \\
+Let $p(x,y) \in \mathbb{R}[x,y]$ such that $p$ vanishes on $E$.\\
+ This means that $p (\theta \cos \theta , \theta \sin \theta )=0 $ for all $\theta >0$. \\
+This implies $V(p)$ intersects every line $L$ in $\mathbb{R}^2$ infinitely many times. So by problem 1 of Assignment 1, every line is in $V(p)$. Thus $p=0$.
+
+\clearpage
 \section*{Problem 3}
-\subsection{Part a}
+\subsection*{Part a}
 \begin{enumerate}
 \item[(i)]
+We have $V(<x,y^2-1>)=\{(0,1),(0,-1)\}$. Since $I(\{(0,1),(0,-1)\})=<x,y^2-1>$, the ideal is closed so it is radical. \\
+Also since $x^2+y^2-1+2xy=(x+y)^2-1=(x+y+1)(x+y-1) \in <x,y^2-1>$, but $(x+y+1),(x+y-1) \not\in <x,y^2-1>$, the ideal is not prime.
+
 \item[(ii)]
+We have $V(<x+y,xy>)=\{(0,0)\}$. Note that $y \in I(\{(0,0)\})$ but $y \not\in <x+y,xy>$, so $<x+y,xy>$ is not closed. \\
+Also note that $(x+y)^2-4xy=(x-y)^2 \in <x+y,xy>$, but $(x-y) \not\in <x+y,xy>$ so the ideal is not radical and therefore is not prime.
 \item[(iii)]
+Note that $x^3-y^2$ is an irreducible polynomial and $V(<x^3-y^2>)$ is infinite, so the ideal is prime. Since the ideal is prime, it is radical. \\
+The ideal is closed because $I(V(x^3-y^2))=<x^3-y^2>$.
+
 \end{enumerate}
 \subsection*{Part b}
+\begin{enumerate}
+\item[(i)]
+Let $f \in I(X_1 \cup X_2)$. So $f(x)=0$ for all $x \in X_1 \ \ or \ \ x \in X_2$. Thus $f \in I(X_1) \cap I(X_2)$,proving $I(X_1 \cup X_2) \subset (X_1) \cap I(X_2)$. \\
+Let $f \in I(X_1) \cap I(X_2)$. So $f(x)=0$ for all $x \in X_1$ and all $x \in X_2$. Thus $x \in I(X_1 \cup X_2)$, proving $(X_1) \cap I(X_2) \subset I(X_1 \cup X_2)$. 
+\item[(ii)]
+By Nullstellensatz, since $I(X_1 \cap X_2)$ and $\sqrt{I(X_1)+I(X_2)}$ are both radical, we just need to prove that
+$V(I(X_1 \cap X_2))=V(\sqrt{I(X_1)+I(X_2)})$. \\
+We clearly have $V(I(X_1 \cap X_2))=X_1 \cap X_2$. \\
+We also have that
+$V(\sqrt{I(X_1)+I(X_2)})=V(I(X_1)+I(X_2)=V(I(X_1)) \cap V(I(X_2))=X_1 \cap X_2$. \\
+Here is an example where $\sqrt{I(X_1)+I(X_2)} \not= I(X_1)+I(X_2)$. \\
+Let $X_1=V(x)$ and $X_2=V(x+y^2$ in $\mathbb{A}^2$. Then
+$$I(X_1)+I(X_2)=<x>+<x+y^2>=<x,y^2>$$
+Which is not radical because $y^2 \in <x,y^2>$ but $y \not\in <x,y^2>$.
+
+
+\end{enumerate}
+
+\clearpage
 \section*{Problem 4}
 \subsection*{Part a}
-Let $V=V_1 \cup V_2 \cup .... \cup V_n$ and $W=W_1 \cup W_2 \cup ... \cup W_m$ be (unique) decompositions of $V$ and $W$. We have $V_i \in W_1 \cup W_2 \cup ... \cup W_m$. Since $V_i$ is irreducible and all $W_j$'s are irreducible we have $V_i \subset w_{J_0}$ for some $J_0$.
+Let $V=V_1 \cup V_2 \cup .... \cup V_n$ and $W=W_1 \cup W_2 \cup ... \cup W_m$ be (unique) decompositions of $V$ and $W$. We have $V_i \in W_1 \cup W_2 \cup ... \cup W_m$. Since $V_i$ is irreducible and all $W_j$'s are irreducible we have $V_i \subset w_{J_0}$ for some $J_0$ by a lemma from class.
 \subsection*{Part b}
 Let $X= X_1 \cup X_2 \cup ... \cup X_n$ be the decomposition of the algebraic set $X$ into irreducible components. Assume $X_i \subset \bigcup_{j \not=i} X_j$.
 So $X_i \subset X_{j_0}$ for some $j_0 \not= i$, this means that $X_i$ is redundant and should not have existed in the decomposition which is a contradiction.
+\subsection*{Part c}
+\begin{eqnarray*}
+V(x^2-yz,xz-x) &=&
+V(x^2-yz) \cap V(xz-x)
+\end{eqnarray*}
+We have $xz-x=x(z-1)=0$, so either $z=1$ or $x=0$. \\
+If $x=0$, $x^2-yz=-yz=0$, which gives us $y$-axis and $z$-axis. \\
+If $z=1$, $x^2=y$ \\
+So $V(x^2-yz,xz-x)=V(x,y) \cup V(x,z) \cup V(x^2-y)$. \\
+The prime ideals are $<x,y>$ and $<x,z>$ and $<x^2-y>$.
+
+\clearpage
+\section*{Problem 5}
+I will first prove that there exist a one-to-one correspondence between ideals of $R$ containing $I$ and ideals of $R/I$. \\
+Let $\pi : R \rightarrow R/I$ be the natural projection sending $a$ to $a+I$. \\
+Given an ideal $J$ of $R$ with $I \subset J \subset R$, we let
+$$\pi (J)=\{r+I : r \in J\}$$
+Given an ideal $T$ of $R/I$, we make it correspond to
+$$\pi^{-1} (T)=\{r \in R: \pi (r) \in T\}$$
+Claim 1: $\pi(J)$ is a subring of $R/I$. \\
+Proof: 
+$0 \in J$, so $\pi(0)=0+I \in \pi(J)$. So $\pi(J)$ is not empty. \\
+Given $(a+I),(b+I) \in \pi(J)$ ($a,b \in J$). Then 
+$(a+I)+(b+I)=a+b+I \in \pi(J)$ because $a+b \in J$. \\
+Also $(a+I)(b+I)=ab+I \in \pi(J)$ because $a+b \in J$.
+Thus $\pi(J)$ is a subring of $R/I$.\\
+Claim 2: $\pi(J)$ is an ideal of $R/I$. \\
+Given $(a+I) \in \pi(J)$ and $(b+I) \in R/I$, we have
+$(a+I)(b+I)=ab+I =\pi(ab)$, since $a \in J$ and $J$ is an ideal, $ab \in J$, thus $\pi (ab) \in \pi(J)$. Proving the right ideal is similar. \\
+Claim 3:$\pi^{-1} (T)$ is a subring of $R$ that contains $I$. \\
+Proof: $0+I \in T$, and for any $a \in I$, $\pi(a)=I=0 \in T$, so $a \in \pi^{-1}(T)$. Thus $\pi^{-1} (T)$ contains $I$. \\
+Given $a,b \in \pi^{-1} (T)$, we have that $\pi(a+b)=(a+I)+(b+I) \in T$ and $\pi(ab)=(a+I)(b+I) \in T$ since 
+$a+I,b+I \in T$.  \\
+Claim 4: $\pi^{-1} (T)$ is an ideal of $R$. \\
+Proof: 
+Let $a \in \pi^{-1} (T)$ and $b \in R$. So 
+$\pi(as)=\pi(a) \pi(s) \in T$ since $T$ is an ideal, thus $as \in \pi^{-1} (T)$. Similar argument can prove right-sided ideal.\\
+Now we are ready to prove what the problen asks. \\
+Claim 5: The correspondences are inverses of each other.
+\\
+Proof:
+Let $J$ be an ideal of $R$ containing $I$. We clearly have $S \subset \pi^{-1} (\pi (J))$. It is sufficient to prove the other inclusion. \\
+Let $a \in \pi^{-1} (\pi (J))$. So $\pi(a) \in \pi(J)$. So there exist $b \in J$ such that $\pi(a)=\pi(b)$. Thus $a-b \in I \subset J$. So $a=a-b+b \in J$. Hence $\pi^{-1} (\pi(J)) \subset J$. \\
+Claim 6: If $J$ is prime, $\pi(J)$ is prime. \\
+Proof:
+Assume $J$ is prime. Assume for a contradiction that $\pi(J)$ is not prime. So we have
+$(a+I)(b+I) \in \pi(J)$ where $(a+I),(b+I) \not\in \pi(J)$. But this contradicts $J$ being prime because $ab \in J$ but $a,b \not\in J$. \\
+Claim 7: If $J$ is radical, $\pi(J)$ is radical. \\
+Assume $J$ is radical. Assume for a contradiction that $\pi(J)$ is not radical. So there exist
+$(a+I)^n =a^n+I \in \pi(J)$ such that $a+I \not\in \pi(J)$. This clearly contradicts radicalness of $J$ because $a^n \in J \rightarrow a \in J$.
+\\
+Similarly we can prove that if $J$ is maximal, $\pi(J)$ is maximal.
+
+
+
+
+
+
+\clearpage
+\section*{Problem 6}
+\subsection*{Part a}
+Let $Y \subset X$ be closed in the induced topology.
+So $Y=X \cap Z$ for some closed set $Z \in \mathbb{A}^n$. Since $X$ and $Z$ are both closed in $\mathbb{A}^n$, their intersection is also closed in $\mathbb{A}^n$. \\
+Also if $Y \subset X$ is closed in $\mathbb{A}^n$, then $Y \cap X=Y$ is closed in the induced topology.
+\subsection*{Part b}
+Let $\pi : k[x_1,...,x_n] \rightarrow k[x_1,...,x_n]/I(X)$ be the natural projection sending $p$ to $p+I(X)$. \\
+By problem 5 we know that there is a correspondence between radical (resp. prime, resp. maximal) ideals of $k[x_1,...,x_n]$ containing $I(X)$ and radical (resp. prime, resp. maximal) ideals of $k[x_1,...,x_n]/I(X)$. \\
+Since $k$ is algebraically closed, there is a one-to-one correspondence between algebraic subsets (resp. subvarieties, resp. points) of $X$ and 
+radical (resp. prime, resp. maximal) ideals of $k[x_1,...,x_n]$ containing $I(X)$. Because for any $Y \subset X$, we have that $I(X) \subset I(Y)$.
+
+\subsection*{Part c}
+Let $\pi : k[x_1,...,x_n] \rightarrow k[x_1,...,x_n]/I(X)$ be the natural projection sending $p$ to $p+I$. \\
+Let $Y$ be a subvariety of $X$. By problem 5 and 6(b) we know that the ideal of $k[x_1,...,x_n]/I(X)$ that corresponds to $Y$ is $\pi(I(Y))=I(Y)/I(X)$. \\
+So we need to show that $k[x_1,..,x_n]/I(Y)$ is isomorphic to $\frac{k[x_1,...,x_n]/I(X)}{I(Y)/I(X)}$. But this is a direct implication of the third ring isomorphism theorem. \\
+Third ring isomorphism theorem from abstract algebra: 
+\\
+Let $R$ be a ring. Let $A,B$ be ideals of $R$ such that $B \subset A$. Then $\frac{R/B}{A/B}$ is isomorphic to $R/A$.
+
+\clearpage
+\section*{Problem 7}
+\subsection*{Part a}
+\begin{enumerate}
+\item[(i)]
+$spec(\mathbb{Z})=\{<p>: p \  \ is \ \ prime \}$
+\item[(ii)]
+$spec(\mathbb{Z}_6)=\{<2>,<3>,<4>\}$
+\item[(iii)]
+The only proper ideal of a field is $\{0\}$, so  $spec(k)=\{0\}$.
+\item[(iv)]
+$spec(\mathbb{R}[x])=\{<x-a>: a \in \mathbb{R}\} \cup \{0\} \cup \{<x^2-2ax+a^2+b^2> :a,b \in \mathbb{R}, b \not=0\}$
+\item[(v)]
+$spec(\mathbb{C}[x])=\{<x-a>: a \in \mathbb{C}\} \cup \{0\}$
+\item[(vi)]
+$spec(\mathbb{C}[x])=\{(ax-b): a,b \in \mathbb{C}\} \cup \{0\}$
+\end{enumerate}
+\subsection*{Part b}
+\begin{enumerate}
+\item It clearly follows from the definition that
+$V(R)=\emptyset$ and $V(0)=spec(R)$.
+\item Arbitrary intersection \\
+First note that if $S \subset R$ and $I$ is the ideal generated by $S$, then we have $V(S)=V(I)$. So we only need to check artbitrary intersection for ideals not all sets. \\
+Let $A$ be a collection of indcies and $I_i$'s denote ideals in $R$. \\
+Claim: $\bigcap_{i \in A} V(I_i) = V(\sum_{i \in A} I_i)$. \\
+First note that $C=\{P \in \ spec(R): I_i \subset P \ \forall i \in A\}=\bigcap_{i \in A} V(I_i)$. \\
+So $C$ is the set of prime ideals of $R$ containing all of $I_i$'s. We also know from algebra that $\sum_{i \in A} I_i$ is the smallest ideal containing all of $I_i$'s. Thus $C=V(\sum_{i \in A} I_i)$. 
+\item Finite union \\
+$V(I_1) \cup V(I_2) = \{P \in \ spec(R): I_1 \subset P 
+\ \ or \ \ I_2 \subset P\}$ \\
+But we know from algebra that $I_1 \cap I_2$ is the largest ideal contained in both $I_1$ and $I_2$, thus we have
+$V(I_1) \cup V(I_2)=V(I_1 \cap I_2)$
+\end{enumerate}
+\subsection*{Part c}
+If $R$ is domain, then $\{<0>\}$ is a prime ideal.
+Let $V(S')$ be the smallest closed set containing $\{<0>\}$.
+$V(S')$ contains all the prime ideals containing $S'$. Let $P$ be any prime ideal in $R$. We know that $S' \subset <0> \subset P$, thus $P \in V(S')$. Hence every prime ideal is in $V(S')$ implying $V(S')=spec(R)$. Thus $\{<0>\}$ is dense in $spec(R)$.
+
+\clearpage
+\subsection*{Part d}
+The only points that are closed in $\mathbb{A}_1^{\mathbb{R}}$ and $\mathbb{A}_1^{\mathbb{C}}$ are clearly the maximal ideals, because if $P$ is a non-maximal prime ideal and $\{P\}$ is closed, then $V(I)=\{P\}$ for some ideal $I$ and $I \subset P \subset J$ for some ideal $J$ that contains $P$ (exists since $P$ is not maximal), then $V(I)$ must have $J$ as a member. \\
+So we need to determine the maximal ideals of $\mathbb{R}[x]$ and $\mathbb{C}[x]$. \\
+$\mathbb{C}$ is a field so $\mathbb{C}[x]$ is a euclidean domain and every non-zero prime ideal is maximal. The same is true for 
+$\mathbb{R}[x]$. We can see the non-zero prime ideals of these two euclidian domains in parts
+(iv) and (v) of part (a). \\
+The points of $\mathbb{A}_k^2$ are the prime ideals of $k[x,y]$. This includes the ideals generated by irreducible polynomias, maximal ideals which are of the form $<x-a,y-b>$ where $a,b \in k$ and $<0>$. In comparison with the affine plane defined in class, the ideal of the zero set of the points in $\mathbb{A}_k^2$ here correspond to irreducible algebraic sets in the affine plane defined in class except if we have an irreducible polynomial whose zero set is finite, it's ideal is not irreducible in the affine plane described in class.
+
+
+
+
+
 \end{document}
+
+

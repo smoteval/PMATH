@@ -49,7 +49,7 @@ Thus $h=0$ everywhere implying $f=g$ everywhere.
 \section*{Problem 2}
 \subsection*{Part a}
 Let $\alpha \in \mathbb{R}$.
-Let $(q_n)_{n=1}^{\infty} \in (-\infty,b)$ be a sequence such that each $q_n \in \mathbb{Q}$ and $q_n \rightarrow \alpha$.
+Let $(q_n)_{n=1}^{\infty} \in (-\infty,\alpha)$ be a sequence such that each $q_n \in \mathbb{Q}$ and $q_n \rightarrow \alpha$.
 We have:
 \begin{eqnarray*}
 \{x:f(x) < \alpha\} &=&
@@ -57,8 +57,173 @@ We have:
 \end{eqnarray*}  
 Since each $\{x:f(x)<q_n\}$ and a countable unioun of measurable sets is measurable, $\{x:f(x) < \alpha\}$ is measurable. Thus $f$ is measurable. 
 \subsection*{Part b}
+We first define:
+$$M_f=\{A \subset \mathbb{R}: f^{-1}(A) \ is \ measurable\}$$
+Claim: $M_f$ is a $\sigma$-algebra. \\
+Proof: Let $A_1,A_2,... \in M_f$, then we have
+$f^{-1}(\bigcup_{n=1}^{\infty} A_n)=
+\bigcup_{n=1}^{\infty} f^{-1}(A_n)$ is measurable because countable union of measurable sets is measurable.
+\\
+Also if $A \in M_f$, we have:
+$f^{-1}(\mathbb{R}\setminus A)=\mathbb{R}\setminus f^{-1}(A)$ which is measurable since $f^{-1}(A)$ is measurable. \\
+Hence $M_f$ is a $\sigma$-algebra. \\
+Note that from the problem statement we have, $S \subset M_f$, and the smallest $\sigma$-algebra containing $S$ includes all open sets, thus $M_f$ contains all open sets implying $f$ is measurable.
+
+\clearpage
+\section*{Problem 3}
+\subsection*{Part a}
+If $m(E)=\infty$, take $G=\mathbb{R}$ and we are done. \\
+Assume $m(E) < \infty$. For every $n \in \mathbb{N}$, let $O_n$ be an open set with $E \subset O_n$ such that $m(O_n)-m(E) < \frac{1}{n}$. \\
+Let $G= \bigcap_{n=1}^{\infty} O_n$. Let $\epsilon >0$. Let $N \in \mathbb{N}$ such that $\frac{1}{N} < \epsilon$. \\
+We have
+$m(G)-m(E) \le m(O_N)-m(E) < \frac{1}{N} < \epsilon$.
+Thus $m(G\setminus E)=0$ and $G$ is a Borel set.
+\subsection*{Part b}
+Let $\epsilon >0$.
+Let $O$ be an open set with $E \subset O$
+such that $m(O\setminus E) < \frac{\epsilon}{2}$.
+We can express $O$ as a countale union of disjoint open intervals $O=\bigcup_{n=1}^{\infty} I_n$ where $I_n$'s are disjoint open intervals.
+We have:
+\begin{eqnarray*}
+\sum_{n=1}^{\infty} m(I_n) &= & 
+m(\bigcup_{n=1}^{\infty} I_n) \\ &=&
+m(O) \\ &=&
+m(O\setminus E)+m(E) \\ &< &
+\frac{\epsilon}{2}+m(E) < \infty
+\end{eqnarray*}
+Thus $\lim_{k \rightarrow \infty}
+\sum_{n=k}^{\infty} m(I_n)=0$.  \\
+So there exist $N \in \mathbb{N}$ such that
+$\sum_{n=N+1}^{\infty} m(I_n) < \frac{\epsilon}{2}$.
+\\
+Now let $U=\bigcup_{n=1}^N I_n$. $U$ is a finite union of open intervals. We now have $(E\setminus U) \subset (O\setminus U)$. So
+\begin{eqnarray*}
+m(E\setminus U) &\le & m(O\setminus U)
+\\ &=&
+m((\bigcup_{n=1}^{\infty} I_n)\setminus (\bigcup_{n=1}^{N} I_n) )
+\\ &=&
+m(\bigcup_{n=N+1}^{\infty} I_n) \\ &=&
+\sum_{n=N+1}^{\infty} m(I_n) \\ &<&
+\frac{\epsilon}{2}
+\end{eqnarray*}
+Also
+$$m(U\setminus E) \le m(O\setminus E) < \frac{\epsilon}{2}$$
+Hence $m(U\setminus E)+m(E\setminus U) < \frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$.
 
 
 
+\clearpage
+\section*{Problem 4}
+\subsection*{Part a}
+For every $n \in \mathbb{N}$, we define $M_n=\{x:f(x) \le n\}$. So we have:
+$$M_1 \subset M_2 \subset M_3 \subset ..... \subset
+\bigcup_{n=1}^{\infty} M_n = f^{-1}(\mathbb{R})$$
+So by continuity of measure, we have $m(f^{-1}(\mathbb{R}))=
+\lim_{n \rightarrow \infty} m(M_n)$. \\
+So there exist $N \in \mathbb{N}$ such that
+$m(f^{-1}(\mathbb{R}))-m(M_n) < \epsilon$ for all $n \ge N$. \\
+Observe that $f^{-1}([\mathbb{R}])=M_N \cup \{x:f(x) > N\}$
+and $M_N \cap \{x:f(x) > N\}=\emptyset$, thus we have:
+\begin{eqnarray*}
+m(f^{-1}(\mathbb{R})) =  m(M_N)+m(\{x:f(x) > N\})
+& \Rightarrow &
+m(\{x:f(x) > N\})=m(f^{-1}(\mathbb{R}))-m(M_N) < \epsilon
+\end{eqnarray*}
+Hence $|f| \le N$ except on a set of measure less than $\epsilon$.
+\subsection*{Part b}
+Let $M >0$. Partition $[0,M]$ into equal intervals each of length $< \epsilon$.\\
+ $0=a_0 < a_1 < a_2 <... < a_n=M$ Where $a_i-a_{i-1}<\epsilon \ \forall i \in \{1,..,n\}$.\\
+For each $i \in \{1,..,n\}$, let $A_i = f^{-1}([a_{i-1},a_i))$. Note that $A_i$'s are measurable because $f$ is measurable. For each $i \in \{1,..,n\}$, let $a_i \in [a_{i-1},a_i)$. We define
+$$\phi (x) = \sum_{j=1}^n a_j X_{A_j} (x)$$
+Choose $x$ such that $|f(x)|<M$. Then $x \in A_k$ and $f(x) \in [a_{k-1},a_k)$ for some $k$. We have:
+\begin{eqnarray*}
+|f(x)-\phi(x)| &=& |f(x)-\sum_{j=1}^n a_j X_{A_j} (x)|
+\\ &=&
+|f(x)-a_k| \\ &\le & L([a_{k-1},a_k))
+\\ &< &
+\epsilon
+\end{eqnarray*}
+Thus $\phi$ is the simple function we wanted. \\
+Note that if $m \le f \le M$ we could have made the exact same arguments by partitioning $[m,M]$ and clearly $\phi$ would have taken values only in $[m,M]$.
+
+\clearpage
+\subsection*{Part c}
+I first prove the statement for a characteristic function because it will be useful for the proof.
+\\
+Let $X_A$ be a characteristic function where $A \subset [a,b]$ is measurable. \\
+Let $U \supset A$ be an open set such that 
+$m(U \setminus A) < \frac{\epsilon}{2}$. \\
+We can write $U$ as a countable union of disjoint open intervals $U=\bigcup_{n=1}{\infty} I_n$ where $I_n$'s are open intervals. \\
+For each $k \in \mathbb{N}$, we define $L_k = \bigcup_{n \ge k} I_n$. So $L_1 \subset L_2 \subset L_3 \subset ....$. \\
+By downward continuity of measure we have:
+$\lim_{k \rightarrow \infty} m(L_k)=m(\cap_{k=1}^{\infty} \cup_{n=k}^{\infty} I_n=m(\emptyset)=0$.
+\\
+So there exist $N \in \mathbb{N}$ such that $m(L_n) < \frac{\epsilon}{2}$ for all $n \ge N$. In particular
+$m(L_{N+1}) < \frac{\epsilon}{2}$. \\
+Let $g_A(x)=\sum_{n=1}^N X_{I_n}$.\\ 
+I will prove that $X_A(x)=g_A(x)$ except on a set of measure less than $\epsilon$. \\
+If $x \in A \cap (\bigcup_{n=1}^N I_n)$, then $g_A(x)=X_A(x)=1$ since $x \in A$. \\
+if $x \not\in U$, then $g_A(x)=X_A(x)=0$.\\
+So it is suffiecient to prove that 
+$m(U\setminus(A \cap (\bigcup_1^N I_n)) < \epsilon$.
+\\ 
+We have: $U\setminus(A \cap (\bigcup_1^N I_n)=
+(U\setminus A) \cup (U \setminus (\bigcup_1^N I_n))
+=(U\setminus A) \cup L_{N+1}$.
+Thus,
+\begin{eqnarray*}
+m(U\setminus(A \cap (\bigcup_1^N I_n))
+&=&
+m((U\setminus A) \cup L_{N+1})
+\\ &\le &
+m(U\setminus A)+m(L_{N+1})
+\\ &< &
+\frac{\epsilon}{2}+\frac{\epsilon}{2}
+\\ &=&
+\epsilon
+\end{eqnarray*}
+Now we can prove the general case. \\
+Let $\phi(x) = \sum_{n=1}^k a_nX_{A_n}$ be a simple function. \\
+For each $n \in \{1,2,...,k\}$, we define $g_n(x)=g_{A_n}(x)$ as was defined in the previous part such that $a_nX_{A_n}(x)=a_ng_n(x)$ except on a set $E_n$ with $m(E_n) < \frac{\epsilon}{k}$. \\
+Let $g(x)=\sum_{n=1}^k a_ng_n(x)$. It's now easy to see that $g(x)$ is the step function that we want. \\
+Note that if $x \in (\bigcup_{n=1}^k E_k)^c$, then
+$\sum_{n=1}^k a_nX_{A_n}=\sum_{n=1}^k a_ng_n(x)=g(x)$.
+\\
+Also note that 
+$m(\bigcup_{n=1}^k E_k) \le m(E_1)+...+m(E_k) <
+\frac{\epsilon}{k}+...+\frac{\epsilon}{k}< \epsilon$.
+\\
+So we have proven that $g(x)=\phi(x)$ except on a set of measure less than $\epsilon$.
+\\
+If $m \le \phi < M$, we have that $m \le \phi \le M$ already because $\max \phi = \max \{a_1,...,a_k\}=\max g$ and $\min \phi = \min \{a_1,...,a_k\}=\min g$
+
+\clearpage
+\subsection*{Part d}
+We first prove the following lemma: \\
+Lemma: Let $g: [a,b] \rightarrow \mathbb{R}$ be a step function. Then there is a continuous function $h$ such that $g(x)=h(x)$ except on a set of measure less than $\epsilon$. If $m \le g \le M$, we can choose $h$ with $m \le h \le M$.  \\
+Proof of lemma:
+Since $g$ is a step function, there exist a disjoint partitioning of $[a,b]$ into intervals $\{I_n\}_{n=1}^{k}$ and constants $a_1,a_2,...,a_k \in \mathbb{R}$ such that 
+$$g(x)=\sum_{n=1}^{k} a_nx_{I_n}$$
+For each $n \in \{1,...,k\}$, let $c_k$ and $d_k$ be the endpoints of $I_k$ ($c_k \le d_k$). \\
+Let $p=\min_{n=1}^k \frac{d_n-c_n}{2}$. Let 
+$\delta = \min \{\frac{\epsilon}{2},p\}$.
+Now for each $n \in \{1,...,k\}$, look at the interval
+$$A_n=(c_k+\frac{\delta}{2n},d_k-\frac{\delta}{2n})$$
+Notice that the intervals $A_n$ are disjoint and $A_n \subset I_n$ for every $n$. Here is how we define $h$: 
+if $x \in A_n$, $h(x)=g(x)=a_n$, between the intervals $A_i$ and $A_{i+1}$ we consider the line from the right end-point of $A_i$ to the left end-point of $A_{i+1}$. So $h$ is a cont function and $h=g$ on $\bigcup_{n=1}^k A_n$. \\
+It remains to prove that $m ((\bigcup_{n=1}^k A_n)^c) < \epsilon$. Just note that $(\bigcup_{n=1}^k A_n)^c$ is a union of $k$ intervals each of length less than $\frac{\epsilon}{k}$, So by sub-additivity we have:
+$$m ((\bigcup_{n=1}^k A_n)^c) < \sum_{n=1}^k \frac{\epsilon}{k} = \epsilon$$ $\square$ \\
+Now assume $m \le g \le M$. Since $h$ was defined by linear interpolation between subintervals in $g$, we have that $m \le h \le M$. \\
+Now we are ready to solve the problem. \\
+By part (a), There exist $M>0$ such that $|f| \le M$ except on a set $E_1$ with $m(E_1) < \frac{\epsilon}{3}$. By part (b), we get a simple function $\varphi$ such that $|f-\varphi| < \epsilon$ except on $E_1$. By part (c), we have a step function $g$ such that $g=\varphi$ except on a set $E_2$ with $m(E_2) < \frac{\epsilon}{3}$. 
+By the lemma, we have a cont function $h$ so that $g=h$ except on a set $E_3$ with $m(E_3) < \frac{\epsilon}{3}$. We have:
+\begin{eqnarray*}
+|f(x)-h(x)|=|f(x)-g(x)|=|f(x)-\varphi(x)| < \epsilon
+\end{eqnarray*}
+except when $x \in E_1 \cup E_2 \cup E_3$.
+By sub-additivity we have
+$$m(E_1 \cup E_2 \cup E_3) \le m(E_1)+m(E_2)+m(E_3)
+< \frac{\epsilon}{3} +\frac{\epsilon}{3}+\frac{\epsilon}{3}= \epsilon$$
+If $m \le f \le M$, each of the parts and the lemma imply that $m \le h \le M$.
 
 \end{document}
