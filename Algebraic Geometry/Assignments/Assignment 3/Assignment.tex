@@ -9,12 +9,63 @@
 \begin{center}
   {\Large\bf University of Waterloo}\\
   \vspace{3mm}
-         {\Large\bf Course - Summer 2015}\\
+         {\Large\bf Algebraic Geometry - Summer 2015}\\
          \vspace{2mm}
-                {\Large\bf Assignment #}\\
+                {\Large\bf Assignment 3}\\
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
+\section*{Problem}
+\subsection*{Part a}
+\subsection*{Part b}
+\subsection*{Part c}
+\section*{Problem 2}
+\subsection*{Solution 1}
+$\phi: \mathbb{A}^1 \rightarrow V(y^2-x^3) : t \rightarrow (t^2,t^3)$ does not have a polynomial inverse. \\
+Assume for a contradiction that $\phi^{-1}: V(y^2-x^3): \rightarrow \mathbb{A}^1$ is polynomial.
+Then $\phi^{-1}$ is a polynomial function on $X=V(y^2-x^3)$, so it is an element of the coordinate ring of $X$.
+We have $A(X)=k[x_1,...,x_n]/I(X)$. Since
+$\bar{y^2}=\bar{x^3}$ in $A(X)$, any polynomial in $A(X)$ can be written as $p(\bar{x})+\bar{y}q(\bar{x})$.
+Therefore $\phi^{-1} (x,y)=p(x)+yq(x)$ for some $q,p \in k[\bar{x}]$.
+So $t \rightarrow (t^2,t^3) \rightarrow p(t^2) + t^3 q(t^2) \not=t$ since its at least power of $2$ in $t$. Hence $\phi^{-1}$ is not polynomial.
+\subsection*{Solution 2}
+
+
+\clearpage
+\section*{Problem 3}
+\subsection*{Part a}
+Note that $\phi^*$ sends $g+I(Y)$ to $g \circ \phi
++I(X)$.\\ 
+So $\phi^*$ is injective means
+$g \in I(Y) \Longleftrightarrow g \circ \phi \in I(X)$. \\
+Since $g \circ \phi \in I(X) \Longleftrightarrow
+g \in I(\phi(X))$, we have that
+$\phi^{*}$ is injective if and only if
+$$I(Y)=I(\phi(X))$$
+which is equivalent to image of $\phi$ under $X$ being dense in $Y$.
+\subsection*{Part b}
+Assume $\phi$ has a polynomial left-inverse $\psi$. \\
+Let $p+I(X)$ be an arbitrary element of the coordinate ring of $X$. \\
+Note that $p \circ \psi \in k[y_1,...,y_m]$. \\
+We have $\phi^* (p \circ \psi +I(Y)) =
+p \circ \psi \circ \phi +I(x) =
+p(\psi \circ \phi) +I(X) =p+I(X)$.\\ 
+Thus $\phi^*$ is surjective. \\
+Conversely assume $\phi^*$ is surjective. \\
+Since $\phi^*$ is surjective, there exist $g_i \in k[y_1,...,y_m]$ such that 
+$\phi (g_i + I(Y)) = x_i + I(X)$ for every $i \in \{1,2,...,n\}$. \\
+So $(g_i \circ \phi) +I(X)=x_i +I(X) \rightarrow (g_i \circ \phi)(x)=x_i(x) \ \forall x \in X$.\\
+Let $\psi = (g_1,g_2,...,g_n)$, then we clearly have
+$\psi \circ \phi = id_{X}$.
+
+
+\section*{Problem 4}
+
+
+
+
+
+
 
 
 \end{document}

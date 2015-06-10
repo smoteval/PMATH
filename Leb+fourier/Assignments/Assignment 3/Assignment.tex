@@ -9,12 +9,150 @@
 \begin{center}
   {\Large\bf University of Waterloo}\\
   \vspace{3mm}
-         {\Large\bf Course - Summer 2015}\\
+         {\Large\bf Pmath 450 - Summer 2015}\\
          \vspace{2mm}
-                {\Large\bf Assignment #}\\
+                {\Large\bf Assignment 3}\\
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
+\section*{Problem 1}
+Assume $f:\mathbb{R} \rightarrow \mathbb{R}$ is integrable. Then since $f^+$ and $f^-$ are non-negative and measurable, so we have:
+\begin{eqnarray*}
+\int_{\mathbb{R}} f(x+y)dm(x) &=&
+\int_{\mathbb{R}} f^+(x+y)dm(x) - 
+\int_{\mathbb{R}} f^-(x+y)dm(x)
+\\ &=&
+\int_{\mathbb{R}} f^+(x)dm(x) - 
+\int_{\mathbb{R}} f^-(x)dm(x)
+\\ &=&
+\int_{\mathbb{R}} f(x)dm(x)
+\end{eqnarray*}
+Now if $f: \mathbb{R} \rightarrow \mathbb{C}$
+is integrable, we have that $Re(f)$ and $Im(f)$ are integrable and therefore we have:
+\begin{eqnarray*}
+\int_{\mathbb{R}} f(x+y)dm(x) &=&
+\int_{\mathbb{R}} Re(f(x+y))dm(x) +i 
+\int_{\mathbb{R}} Im(f(x+y))dm(x)
+\\ &=&
+\int_{\mathbb{R}} Re(f(x))dm(x) - 
+\int_{\mathbb{R}} Im(f(x))dm(x)
+\\ &=&
+\int_{\mathbb{R}} f(x)dm(x)
+\end{eqnarray*}
+
+\clearpage
+\section*{Problem 2}
+\subsection*{Part a}
+We know that
+$\sup \{|f(x)+g(x)|: x \in A\} \le 
+\sup \{|f(x)|: x \in A\}+\sup \{|g(x)|: x \in A\}$. This implies that
+$$\inf \{\sup |f(x)+g(x)|: x \in A\} 
+\le 
+\inf \{\sup |f(X)|:x \in A\} +
+\inf \{\sup |g(x)|: x \in A\}$$
+Hence $||f+g||_{\infty} \le ||f||_{\infty}+||g||_{\infty}$.
+\subsection*{Part b}
+We know that $m\{x : |h(x)| > ||h||_{\infty}\}=0$. Thus
+$$\inf \{\alpha \in \mathbb{R}: m\{x:|h(x)| >\alpha \} =0\} \le ||h||_{\infty}$$
+Now assume for a contradiction that there exist $\alpha < ||h||_{\infty}$ such that
+$m\{x : |h(x)| > \alpha \} = 0$.\\
+Since $||h||_{\infty}=\inf_{m(E\setminus A)=0}
+\{\sup |h(x)|:x \in A\}$ and $\alpha < ||h||_{\infty}$, for every set $A$ with \\ 
+$m(E\setminus A)=0$, we have that $\alpha < \{\sup |h(x)|: x \in A\}$.
+This means that there exist no set $A$ with $m(E\setminus A)=0$ such that
+$A=\{x: |h(x)| \le \alpha \}$. Thus $m\{x: |h(x)| > \alpha \} > 0$. Hence 
+$$\inf \{\alpha \in \mathbb{R}: m\{x:|h(x)| >\alpha \} =0\} = ||h||_{\infty}$$
+
+
+\section*{Problem 3}
+By lotus lemma we have:
+$$\int \lim \inf  f_n \le \lim \inf \int f_n$$
+Since $f_n \rightarrow f$, we have 
+$\int f \le \lim \inf \int f_n$. Thus $f$ is integrable. Now dominated convergence theorem readily implies $\int f = \lim_n \int f_n$.
+
+
+\clearpage
+\section*{Problem 4}
+\subsection*{Part a}
+Let $f(x)=0$ when $x<1$ and $f(x)=\frac{1}{x}$ when $x \ge 1$. We have:
+$$\int_{\mathbb{R}} |f|^2 =\int_1^{\infty} \frac{1}{x^2} = 1$$
+Thus $f \in  \ L^2(\mathbb{R})$. But
+$\int_{\mathbb{R}} |f| =\int_1^{\infty} \frac{1}{x} $ does not converge, thus $f \not\in \ L^1(\mathbb{R})$. \\
+
+
+\subsection*{Part b}
+Let $f^2 \in L^1[0,1]$. So
+$\int_0^1 |f^2| =\int_0^1 |f|^2 < \infty$, thus
+$f \in L^2[0,1]$. We have:
+\begin{eqnarray*}
+\int_0^1 |f| &=& \int_0^1 |f|.1
+\\ & \le &
+||f||_2||1||_2 \ \ by \ \ holder's \ \ inequality
+\end{eqnarray*} 
+Since $f \in L^2[0,1]$, $||f||_2 < \infty$, so
+$||f||_2||1||_2 < \infty$ which implies $\int_0^1 |f| < \infty$. \\
+Hence $f \in L^1[0,1]$.
+
+\clearpage
+\section*{Problem 5}
+Let $||f||_{\infty} > \epsilon >0$. Let $A_{\epsilon}=\{x: |f(x)| \ge ||f||_{\infty} - \epsilon\}$. So by definition of maximum norm we get that $m(A_{\epsilon}) >0$, so we have: 
+$$||f||_p \ge \left(\int_{A_{\epsilon}} 
+(||f||_{\infty}-\epsilon)^p \right)^{\frac{1}{p}}
+=
+(||f||_{\infty}-\epsilon)(m(A_{\epsilon}))^{\frac{1}{p}}
+\rightarrow ||f||_{\infty}-\epsilon
+\ \ as \ \ p \rightarrow \infty
+$$
+Thus, $\lim_{p \rightarrow \infty} \inf ||f||_p \ge ||f||_{\infty}$. \\
+We also have:
+\begin{eqnarray*}
+||f||_p &=& 
+\left( \int |f|^{p-1}|f| \right)^{\frac{1}{p}}
+\\ &\le &
+||f||_{\infty}^{\frac{p-1}{p}} ||f||_1^{\frac{1}{p}} \ \ \ by \ \ \ holder's \ \ \ inequality
+\\ &\rightarrow &
+||f||_{\infty} \ \ \ as \ p \rightarrow \infty
+\end{eqnarray*}
+Thus, $\lim_{p \rightarrow \infty} \sup ||f||_p \le ||f||_{\infty}$. \\
+Hence $||f||_p \rightarrow ||f||_{\infty}$ as $p \rightarrow \infty$.
+
+
+
+\clearpage
+\section*{Problem 6}
+Claim: $S$ is dense in $C[0,1]$ with respect to $L^2$ norm. \\
+Proof: \\
+Let $\epsilon >0$. Let $f \in C[0,1]$. \\ 
+Let $a=\sup \{|f(x)|:x \in [0,\epsilon]\}$.
+Let $b=\sup \{|f(x)|:x \in [1-\epsilon,1]\}$. \\
+We define a new function $g: [0,1] \rightarrow \mathbb{C}$ as follows: \\\
+$g(x)=f(x)$ for all $x \in (\epsilon,1-\epsilon)$.
+\\
+On $[0,\epsilon]$, $g$ is the line from $0$ to $f(\epsilon)$ ($g(0)=0$ and $g(\epsilon)=f(\epsilon)$). 
+\\
+On $[1-\epsilon,1]$, $g$ is the line from $f(1-\epsilon)$ to $0$ ($g(1-\epsilon)=f(1-\epsilon)$ and $g(1)=0$). \\
+Note that $g \in S$. We have:
+\begin{eqnarray*}
+||f-g||_2^2 &=&
+\int_0^1 |f-g|^2
+\\ &=&
+\int_{[0,\epsilon]} |f-g|^2 +
+\int_{(\epsilon,1-\epsilon)} |f-g|^2 +
+\int_{[1-\epsilon,1]} |f-g|^2
+\\ &\le &
+a\epsilon + 0 + b\epsilon
+\\ &=&
+\epsilon (a+b)
+\end{eqnarray*}
+Proving the claim . \\
+In class we proved $C[a,b]$ is dense in $L^2[a,b]$ and now by the claim we have $S$ is dense in 
+$L^2[a,b]$. \\
+Now we have a function $f \in L^2[0.1]$ such that
+$\int_0^1 fg =0$ for all $g \in S$. \\
+
+
+
+
 
 
 \end{document}
