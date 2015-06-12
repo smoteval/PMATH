@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.19)  9 JUN 2015 22:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.19)  12 JUN 2015 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -243,22 +243,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 78--81
-
- []
-
-[3
+] [3
 
 ] [4
 
 ] [5
 
+]
+Underfull \hbox (badness 10000) in paragraph at lines 174--179
+
+ []
+
+[6
+
 ] (./Assignment.aux) ) 
 Here is how much of TeX's memory you used:
  2582 strings out of 493117
  34619 string characters out of 6135432
- 95028 words of memory out of 5000000
+ 97028 words of memory out of 5000000
  6000 multiletter control sequences out of 15000+600000
  9803 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -276,10 +278,10 @@ r8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb>
-Output written on Assignment.pdf (5 pages, 120067 bytes).
+Output written on Assignment.pdf (6 pages, 126199 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 71 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

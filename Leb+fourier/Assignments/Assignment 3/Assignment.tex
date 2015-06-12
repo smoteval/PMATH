@@ -78,6 +78,10 @@ Let $f(x)=0$ when $x<1$ and $f(x)=\frac{1}{x}$ when $x \ge 1$. We have:
 $$\int_{\mathbb{R}} |f|^2 =\int_1^{\infty} \frac{1}{x^2} = 1$$
 Thus $f \in  \ L^2(\mathbb{R})$. But
 $\int_{\mathbb{R}} |f| =\int_1^{\infty} \frac{1}{x} $ does not converge, thus $f \not\in \ L^1(\mathbb{R})$. \\
+Let $g(x)=\frac{1}{\sqrt{x}}$ on $[0,1]$ and $g(x)=0$ elsewhere. We have:
+$$||g||_1=\int_{\mathbb{R}} g
+=\int_0^1 \frac{1}{\sqrt{x}}=2$$
+But $\int_{\mathbb{R}} g^2=\int_0^1 \frac{1}{x}=\infty$. Thus $g \not\in L^2(\mathbb{R})$.
 
 
 \subsection*{Part b}
@@ -120,12 +124,12 @@ Hence $||f||_p \rightarrow ||f||_{\infty}$ as $p \rightarrow \infty$.
 
 \clearpage
 \section*{Problem 6}
-Claim: $S$ is dense in $C[0,1]$ with respect to $L^2$ norm. \\
+Claim: $S$ is dense in $C[0,1]$ with respect to $L^2[0,1]$ norm. \\
 Proof: \\
 Let $\epsilon >0$. Let $f \in C[0,1]$. \\ 
-Let $a=\sup \{|f(x)|:x \in [0,\epsilon]\}$.
-Let $b=\sup \{|f(x)|:x \in [1-\epsilon,1]\}$. \\
-We define a new function $g: [0,1] \rightarrow \mathbb{C}$ as follows: \\\
+WLOG we can assume that $f$ is real-valued. (Otherwise approximate real and imaginary part and put them back together).\\
+First assume that $f$ is bounded. Say $|f(x)| \le N \ \forall x \in [0,1]$.\\
+We define a new function $g: [0,1] \rightarrow \mathbb{R}$ as follows: \\\
 $g(x)=f(x)$ for all $x \in (\epsilon,1-\epsilon)$.
 \\
 On $[0,\epsilon]$, $g$ is the line from $0$ to $f(\epsilon)$ ($g(0)=0$ and $g(\epsilon)=f(\epsilon)$). 
@@ -140,17 +144,48 @@ Note that $g \in S$. We have:
 \int_{(\epsilon,1-\epsilon)} |f-g|^2 +
 \int_{[1-\epsilon,1]} |f-g|^2
 \\ &\le &
-a\epsilon + 0 + b\epsilon
+N^2\epsilon + 0 + N^2\epsilon
 \\ &=&
-\epsilon (a+b)
+2N^2\epsilon 
 \end{eqnarray*}
-Proving the claim . \\
-In class we proved $C[a,b]$ is dense in $L^2[a,b]$ and now by the claim we have $S$ is dense in 
-$L^2[a,b]$. \\
-Now we have a function $f \in L^2[0.1]$ such that
-$\int_0^1 fg =0$ for all $g \in S$. \\
+This concludes the proof for $f$ being bounded. \\
+Now suppose $f \in C[0,1]$ is arbitrary. \\
+Define $f_N(x)=f(x)$ if $|f(x)| \le N$ and
+$f_N(x)=0$ otherwise.\\
+We have $f_N \rightarrow f$ pointwise a.e. \\
+So $|f_N-f|^2 \rightarrow 0$ pointwise a.e.\\
+Since $|f-f_N|^2 \le |f|^2$ and $|f|^2$ is integrable, by dominated convergence theorem, we have:
+$$\int_{[0,1]} |f-f_N|^2 \rightarrow \int_{[0,1]} 0=0$$
+So $||f-F_N||_2 \rightarrow 0$. \\
+Let $\epsilon >0$. Pick $N \in \mathbb{N}$ such that
+$||f-f_N||_2 < \frac{\epsilon}{2}$. \\
+Get $h \in S$ with
+$||h-f_N||_2 < \frac{\epsilon}{2}$. We have:
+$$||h-f||_2 \le ||h-f_N||_2+||f_N-f||_2 < \epsilon$$
+Hence $S$ is dense in $C[0,1]$ with respect to $L^2[0,1]$ norm. \\
+Let $(g_n)_{n=1}^{\infty}$ be a sequence in $S$ such that $||g_n||_2 \rightarrow ||f||_2$ and $g_n \le f$ for all $n$. \\
+By the dominated convergence theorem,
+$\int_0^1 f^2=\int_0^1 \lim_{n \rightarrow \infty} fg_n
+=\lim_{n \rightarrow \infty} \int_0^1 fg_n=0$ since $\int_0^1 fg=0$ for all $g \in S$. \\
+Thus $||f||_2 =0$. Hence $f=0$ a.e.
 
-
+\clearpage
+\subsection*{Problem 7}
+Since $f \ge 0$, $||f^n||_1=\int_0^1 f^n(x)=\int_0^1 f(x)=||f||_1$ for all $n \in \mathbb{N}$.
+Now since $||f^n||_1=||f||_1$ we have that
+$f^n(x)=f(x)$ a.e for all $n \in \mathbb{N}$. \\
+So $f(x)=1$ a.e. \\
+Let $E=\{x:f(x)=1\}$. We just need to prove that $E$ is measurable. We have: \\
+\begin{eqnarray*}
+E &=& \left(
+\bigcap_{n=1}^{\infty} \{x:f(x) \le 1+\frac{1}{n}\} 
+\right)
+\cap
+\left(
+\bigcap_{n=1}^{\infty} \{x:f(x) \ge 1-\frac{1}{n}\}
+\right)
+\end{eqnarray*} 
+Since countable intersection of measurable sets is measurable, $E$ is measurable and $f=X_E$ a.e.
 
 
 

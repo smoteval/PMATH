@@ -17,8 +17,16 @@
 \end{center}
 \section*{Problem}
 \subsection*{Part a}
+We know from linear algebra that
+$O(n,k)=V(\det -1) \cup V(\det +1)$. So the set is reducible and therefore is not a variety. 
 \subsection*{Part b}
+
 \subsection*{Part c}
+The polynomial map
+$\phi: \mathbb{A}^1 \rightarrow V(xz-y^2,yz-x^3,z^2-x^y)$ that sends $t$ to $(t^3,t^4,t^5)$ is surjective. Therefore since $\mathbb{A}^1$ is irreducible, so is $X=\phi(\mathbb{A}^1)$.
+
+
+\clearpage
 \section*{Problem 2}
 \subsection*{Solution 1}
 $\phi: \mathbb{A}^1 \rightarrow V(y^2-x^3) : t \rightarrow (t^2,t^3)$ does not have a polynomial inverse. \\
@@ -29,6 +37,10 @@ $\bar{y^2}=\bar{x^3}$ in $A(X)$, any polynomial in $A(X)$ can be written as $p(\
 Therefore $\phi^{-1} (x,y)=p(x)+yq(x)$ for some $q,p \in k[\bar{x}]$.
 So $t \rightarrow (t^2,t^3) \rightarrow p(t^2) + t^3 q(t^2) \not=t$ since its at least power of $2$ in $t$. Hence $\phi^{-1}$ is not polynomial.
 \subsection*{Solution 2}
+It is sufficient to show that $k(\mathbb{A}^1)$ is not isomorphic to $k(V(y^2-x^3))$.\\
+We have that $k(V(y^2-x^3))$ is isomorphic to $k[t^2,t^3]$ and $k(\mathbb{A}^1)$ is isomorphic to $k[t]$. \\
+Note that $k[t]$ is a UFD, but $k[t^2,t^3]$ is not because $t^8=t^3t^3t^2=(t^2)^3$ has two factorizations.
+Hence $k(\mathbb{A}^1)$ is not isomorphic to $k(V(y^2-x^3))$.
 
 
 \clearpage
@@ -60,6 +72,102 @@ $\psi \circ \phi = id_{X}$.
 
 
 \section*{Problem 4}
+
+
+
+\clearpage
+\section*{Problem 5}
+$I(y^2-x^2(x+1))=<y^2-x^2(x+1)>$ since $y^2-x^2(x+1)$ is irreducible.\\ 
+So we have
+$\bar{y}^2=\bar{x}^2(\bar{x}+\bar{1})$ in $\Gamma (V(y^2-x^2(x+1)))$. Thus\\
+$$z=\frac{\bar{y}}{\bar{x}}=
+\frac{\bar{x}^2(\bar{x}+\bar{1})}{\bar{x}\bar{y}}
+=\frac{\bar{x}(\bar{x}+\bar{1})}{\bar{y}}$$
+and
+$$z^2=\frac{\bar{y}^2}{\bar{x}^2}
+= \frac{\bar{x}^2(\bar{x}+\bar{1})}{\bar{x}^2}
+=\bar{x}+\bar{1}$$
+So $z^2$ has no poles since it has a polynomial representation and also $z^2 \in \Gamma(X)$.\\
+We can also see that $z$ has no pole at $(a,b)$ if $a \not=0$ or $b \not=0$. So the only possible pole for $z$ is $(0,0)$. \\
+Assume for a contradiction that $z$ is defined on $(0,0)$. So there exist $g,h \in \Gamma(X)$ such that $z=\frac{g}{h}$ and $h(0,0) \not=0$. Equivalently $h\bar{y}=g\bar{x}$. \\
+Because of the relation $\bar{y}^2=\bar{x}^2(\bar{x}+\bar{1})$ any element
+of $\Gamma(X)$ can be written uniquely in the form
+$a(\bar{x})+b(\bar{x})\bar{y}$.\\
+So we can write $h\bar{y}=g\bar{x}$ as:
+$$(h_1(\bar{x})+h_2(\bar{x})\bar{y})\bar{y}=
+(g_1(\bar{x})+g_2(\bar{x})\bar{y})\bar{x}$$
+where $h_1(0) \not=0$. So
+$$
+h_1(\bar{x})\bar{y}+h_2(\bar{x})\bar{x}^2(\bar{x}+\bar{1})=
+g_1(\bar{x})\bar{x}+g_2(\bar{x})\bar{x}\bar{y}
+$$
+Now by uniqueness we have $h_1(\bar{x})=g_2(\bar{x})\bar{x}$. Thus $h_1(0)=0$ which is a contradiction. \\
+Hence $(0,0)$ is the only pole of $z$ and $z \not\in \Gamma(X)$.
+
+\clearpage
+\section*{Problem 6}
+\subsection*{Part a}
+Let $F(x,y)=ax^2+by^2+cxy+dx+ey+f \in k[x,y]$ be irreducible. We break the problem down to a few cases and subcases:
+\begin{enumerate}
+\item[Case 1:] Either $a$ or $b$ is nonzero. WLOG assume $a \not= 0$. \\
+Let $X_1=\sqrt{a}(x+\frac{c}{2a}y)$. There exists $b_1$ such that $F=X_1^2+b_1y^2+dx+ey+f$. \\
+There exist constants $d_1,e_1,f_1$ such that
+$F=X_1^2+b_1y^2+d_1X_1+e_1y+f_1$. (It's very tedious to calculate these constants but they clearly exist).
+\\
+Let $X_2=X_1+\frac{d_1}{2}$. Then there exist constant $f_2$ such that
+$F=X_2^2+b_1y^2+e_1y+f_2$. \\
+We have 2 subcases to consider here:
+\begin{enumerate}
+\item[Subcase 1:] $b_1=0$. \\
+So $F=X_2^2+e_1y+f_2$. Note that if $e_1=0$ we get
+$F=(X_2-\sqrt{f_2})(X+\sqrt{f_2})$ which is reducible so $e_1 \not=0$. \\
+Now let $Y=-e_1y-f_2$ and we have
+$F=X_2^2-Y$.
+\item[Subcase 2:] $b_1 \not=0$. \\
+So $F=X_2^2+b_1y^2+e_1y+f_2=X_2^2+y^2+\frac{e_1}{b_1}y+\frac{f_2}{b_1}$. \\
+Let $Y_1=y+\frac{e_1}{2b_1}$. Then there exist constant $f_3$ such that
+$F=X_2^2+Y_1^2-f_3$. Note that if $f_3=0$ then
+$F=(X_2-iY_1)(X_2+iY_1)$ which is reducible. So $f_3 \not=0$. \\
+Now let $X_3=\sqrt{f_3}X_2$ and $Y_2=\sqrt{f_3}Y_1$. Then $F=f_3(X_3^2+Y_2^2-1)$. Therefore $V(F)$ can be written in the form $X_3^2+Y_2^2-1=0$.
+\end{enumerate}
+\item[Case 2:] $a=b=0$. \\
+So $F=cxy+dx+ey+f$. Note that $c \not=0$ because otherwise thepolynomial would have degree $1$.
+We have: \\
+$F=c(xy+\frac{d}{c}x+\frac{e}{c}y)+f$. So there exist constant $c_1$ such that
+$F=c(x+\frac{e}{c})(y+\frac{d}{c})+f_1$. Where $f_1 \not=0$ otherwise the polynomial would be reducible. \\
+
+Let $X=\frac{-\sqrt{c}}{f_1}(\frac{1}{2}x+\frac{1}{2}y+\frac{e}{2c}+\frac{d}{2c})$ and 
+$Y=\frac{-i \sqrt{c}}{f_1}(\frac{1}{2}x-\frac{1}{2}y+\frac{e}{2c}-\frac{d}{2c})$.\\ 
+Then $X^2+Y^2-1=(X-iY)(X+iY)-1=\frac{-c}{f_1}(x+\frac{e}{c})(y+\frac{d}{c})-1$. \\
+So $V(F)$  can be written in the form $X^2+Y^2-1=0$.
+
+\clearpage
+\subsection*{Part b}
+The polynomial map $\phi: \mathbb{A}^1 \rightarrow V(y-x^2)$
+which sends $t$ to $(t^2,t)$ is clearly an isomorphism because it's inverse simply sends $(t^2,t)$ to $t$ which is polynomial. So $V(y-x^2)$ is isomorphic to $\mathbb{A}^1$. \\
+Claim: $V(x^2+y^2-1)$ is isomorphic to $V(xy-1)$.
+\\
+Proof: Let $\phi:V(x^2+y^2-1) \rightarrow V(xy-1)$ be a polynomial map that sends $(a,b)$ to $(a-ib,x+ib)$.\\ 
+It's inverse $\phi^{-1}: V(xy-1)
+\rightarrow V(x^2+y^2-1)$ sends $(a,b)$ to
+$(\frac{1}{2}(a+b),i\frac{1}{2}(a-b))$. \\
+Hence $V(x^2+y^2-1)$ is isomorphic to $V(xy-1)$.
+\\
+We proved in class that $V(xy-1)$ is not isomorphic to the affine line, thus $V(x^2+y^2-1)$ is not isomorphic to $\mathbb{A}^1$.
+
+\subsection*{Part c}
+Given a point $(a,b) \in V(x^2+y^2-1)$, we need to verify that the intersection of $y=0$ and the line containing $(a,b)$ and $(0,1)$ is the point $(\frac{a}{1-b},0)$. \\
+The line passing through  $(a,b)$ and $(0,1)$
+is $y-1=\frac{b-1}{a}x$. $y=0$, so
+$-1=\frac{b-1}{a}x$. Thus $x=\frac{a}{1-b}$. \\
+Hence the rational map sending $(x,y)$ to
+$\frac{x}{1-y}$ is stereographic projection. \\
+The inverse $\Theta^{-1} : \mathbb{A}^1 \rightarrow V(x^2+y^2-1)$ is also a rational map
+that sends $t$ to $(\frac{2t}{1+t^2},\frac{1-t^2}{1+t^2})$. \\
+Thus $\Theta$ is a birational equivalence.
+
+
+\end{enumerate}
 
 
 
