@@ -15,28 +15,30 @@
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
-\section*{Problem}
+\section*{Problem 1}
 \subsection*{Part a}
-We know from linear algebra that
-$O(n,k)=V(\det -1) \cup V(\det +1)$. So the set is reducible and therefore is not a variety. 
+We know from linear algebra that every element of $O(n,k)$ has determinant either $1$ or $-1$. Thus
+$O(n,k)=(V(\det_n -1) \cap O(n,k)) \cup (V(\det_n +1)\cap O(n,k))$. So the set is reducible and therefore is not a variety. 
 \subsection*{Part b}
+We just need to note that
+$$SU(2,\mathbb{C})=\{
+\begin{bmatrix}
+a & -\bar{b} \\
+b & \bar{a}
+\end{bmatrix}
+: a,b \in \mathbb{C}, |a|^2+|b|^2=1
+\}
+$$
+As I argued in Assignment 1, this intersects the line $z=1$ infinitely many times and therefore is not an algebraic set.
+
 
 \subsection*{Part c}
 The polynomial map
 $\phi: \mathbb{A}^1 \rightarrow V(xz-y^2,yz-x^3,z^2-x^y)$ that sends $t$ to $(t^3,t^4,t^5)$ is surjective. Therefore since $\mathbb{A}^1$ is irreducible, so is $X=\phi(\mathbb{A}^1)$.
 
 
-\clearpage
+
 \section*{Problem 2}
-\subsection*{Solution 1}
-$\phi: \mathbb{A}^1 \rightarrow V(y^2-x^3) : t \rightarrow (t^2,t^3)$ does not have a polynomial inverse. \\
-Assume for a contradiction that $\phi^{-1}: V(y^2-x^3): \rightarrow \mathbb{A}^1$ is polynomial.
-Then $\phi^{-1}$ is a polynomial function on $X=V(y^2-x^3)$, so it is an element of the coordinate ring of $X$.
-We have $A(X)=k[x_1,...,x_n]/I(X)$. Since
-$\bar{y^2}=\bar{x^3}$ in $A(X)$, any polynomial in $A(X)$ can be written as $p(\bar{x})+\bar{y}q(\bar{x})$.
-Therefore $\phi^{-1} (x,y)=p(x)+yq(x)$ for some $q,p \in k[\bar{x}]$.
-So $t \rightarrow (t^2,t^3) \rightarrow p(t^2) + t^3 q(t^2) \not=t$ since its at least power of $2$ in $t$. Hence $\phi^{-1}$ is not polynomial.
-\subsection*{Solution 2}
 It is sufficient to show that $k(\mathbb{A}^1)$ is not isomorphic to $k(V(y^2-x^3))$.\\
 We have that $k(V(y^2-x^3))$ is isomorphic to $k[t^2,t^3]$ and $k(\mathbb{A}^1)$ is isomorphic to $k[t]$. \\
 Note that $k[t]$ is a UFD, but $k[t^2,t^3]$ is not because $t^8=t^3t^3t^2=(t^2)^3$ has two factorizations.
@@ -71,8 +73,23 @@ Let $\psi = (g_1,g_2,...,g_n)$, then we clearly have
 $\psi \circ \phi = id_{X}$.
 
 
-\section*{Problem 4}
 
+\section*{Problem 4}
+Since $k$ is a field, to prove bijectivity, it is sufficient to prove that $\phi$ is a ring homomorphism. \\
+Let $a,b \in \mathbb{A}^1$. We have:
+\begin{eqnarray*}
+\phi(a+b)   &=&   (a+b)^p \\ &=&
+a^p+{p \choose 1}a^{p-1}b+..
++{p \choose i}a^{p-1i}b^i+...+b^p
+\\ &=&
+a^p+b^p \ \ \ since  \ \ \ char(k)=p \ \ p \ \ is \ \ prime
+\\ &=&
+\phi(a)+\phi(b)
+\end{eqnarray*}
+Also $\phi(ab)=(ab)^p=a^pb^p=\phi(a)\phi(b)$.
+Thus $\phi$ is a ring homomorphism.\\
+Let $g \in k[x]$. Note that
+$\phi^*(g)=g \circ \phi$. So $\phi^* :k[x] \rightarrow k[x^p]$. Thus $\phi^*$ is not an isomorphism as $k[x]$ is not isomorphic to $k[x^p]$ ($\phi^*$ is not even surjective). Hence $\phi$ is not an isomorphism.
 
 
 \clearpage
@@ -107,7 +124,7 @@ Hence $(0,0)$ is the only pole of $z$ and $z \not\in \Gamma(X)$.
 \clearpage
 \section*{Problem 6}
 \subsection*{Part a}
-Let $F(x,y)=ax^2+by^2+cxy+dx+ey+f \in k[x,y]$ be irreducible. We break the problem down to a few cases and subcases:
+Let $F(x,y)=ax^2+by^2+cxy+dx+ey+f \in k[x,y]$ be irreducible. We break the problem down into a few cases and subcases:
 \begin{enumerate}
 \item[Case 1:] Either $a$ or $b$ is nonzero. WLOG assume $a \not= 0$. \\
 Let $X_1=\sqrt{a}(x+\frac{c}{2a}y)$. There exists $b_1$ such that $F=X_1^2+b_1y^2+dx+ey+f$. \\
@@ -142,12 +159,29 @@ Then $X^2+Y^2-1=(X-iY)(X+iY)-1=\frac{-c}{f_1}(x+\frac{e}{c})(y+\frac{d}{c})-1$. 
 So $V(F)$  can be written in the form $X^2+Y^2-1=0$.
 
 \clearpage
+Now we consider the case that $char(k)=2$.\\
+Let $F(x,y)=ax^2+by^2+cxy+dx+ey+f \in k[x,y]$ be irreducible. \\
+\begin{enumerate}
+\item[Case 1:] $c=0$ \\
+Let $X=\sqrt{a}x+\sqrt{b}y$ and let $Y=-dx-ey-f$. Then $F=X^2-Y$. Thus $V(F)$ is isomorphic to $V(Y-X^2)$.
+\item[Case 2:] $c \not=0$\\
+We have 2 subcases
+\begin{enumerate}
+\item[Subcase 1:] $a=b=0$ \\
+Let $X=cx+e$ and let $Y=y+\frac{d}{c}$. Then
+$F=XY-f_1$ for some constant $f_1$. Thus $V(F)$ is isomorphic to $V(XY-1)$ and I will prove in part (b) of this problem that $V(XY-1)$ is isomorphic to $V(X^2+Y^2-1)$.
+\item[Subcase 2:] Either $a$ or $b$ is nonzero. WLOG assume $a \not= 0$. \\
+\end{enumerate}
+\end{enumerate}
+
+
+\clearpage
 \subsection*{Part b}
 The polynomial map $\phi: \mathbb{A}^1 \rightarrow V(y-x^2)$
 which sends $t$ to $(t^2,t)$ is clearly an isomorphism because it's inverse simply sends $(t^2,t)$ to $t$ which is polynomial. So $V(y-x^2)$ is isomorphic to $\mathbb{A}^1$. \\
 Claim: $V(x^2+y^2-1)$ is isomorphic to $V(xy-1)$.
 \\
-Proof: Let $\phi:V(x^2+y^2-1) \rightarrow V(xy-1)$ be a polynomial map that sends $(a,b)$ to $(a-ib,x+ib)$.\\ 
+Proof: Let $\phi:V(x^2+y^2-1) \rightarrow V(xy-1)$ be a polynomial map that sends $(a,b)$ to $(a-ib,a+ib)$.\\ 
 It's inverse $\phi^{-1}: V(xy-1)
 \rightarrow V(x^2+y^2-1)$ sends $(a,b)$ to
 $(\frac{1}{2}(a+b),i\frac{1}{2}(a-b))$. \\
@@ -164,6 +198,8 @@ Hence the rational map sending $(x,y)$ to
 $\frac{x}{1-y}$ is stereographic projection. \\
 The inverse $\Theta^{-1} : \mathbb{A}^1 \rightarrow V(x^2+y^2-1)$ is also a rational map
 that sends $t$ to $(\frac{2t}{1+t^2},\frac{1-t^2}{1+t^2})$. \\
+Also note that both $\Theta^{-1}$ and $\Theta$ are dominant because\\ 
+$cl(\Theta^{-1}(\mathbb{A}^1))=cl(X\setminus \{(0,1)\})=X$ and $cl(\Theta(X))=\mathbb{A}^1$.\\
 Thus $\Theta$ is a birational equivalence.
 
 
