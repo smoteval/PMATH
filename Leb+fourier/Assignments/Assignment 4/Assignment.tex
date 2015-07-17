@@ -9,12 +9,95 @@
 \begin{center}
   {\Large\bf University of Waterloo}\\
   \vspace{3mm}
-         {\Large\bf Course - Summer 2015}\\
+         {\Large\bf Pmath 450 - Summer 2015}\\
          \vspace{2mm}
-                {\Large\bf Assignment #}\\
+                {\Large\bf Assignment 4}\\
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
+\section*{Problem 1}
+\subsection*{Part a}
+I will first prove that $C_0$ is a subspace of $l^{\infty}$. \\\
+Let $(x_n) \in C_0$. If $x_n =0$ for all $n$ then $||(X_n)||_{\infty}=0$ and we are done. So we assume that the sequence $(x_n)$ has non-zero terms. Let $a$ be the first non-zero term. \\
+Let $\epsilon < |a|$. Since $x_n \rightarrow 0 $ as $n \rightarrow \infty$, there exists $N \in \mathbb{N}$ such that $x_n < \epsilon < |a|$ for all $n \ge N$. So we have: 
+\begin{eqnarray*}
+||(x_n)||_{\infty} &=& \sup |X_n| \\ &=&
+\max\{x_1,...,x_N\}  < \infty
+\end{eqnarray*}
+Thus $(x_n) \in l^{\infty}$. \\
+Now I need to prove that $C_0$ is closed. \\
+Let $(x_n)_m$ be a sequence in $C_0$ meaning $(x_n)_i \rightarrow 0$ as $n \rightarrow \infty$ for all $i \in \mathbb{N}$. So $(x_n)_m \rightarrow 0$ as $n,m \rightarrow \infty$ and we are done.
+\subsection*{Part b}
+We first show that $l^{\infty}$ is not separable. \\
+Consider the set of sequences whose elements are made up of only zeroes and ones.
+This is clearly a subset of $l^{\infty}$. Note that there is a one-to-one correspondence between each of these sequences and the binary representation of numbers in the interval $(0,1)$ ($0.x_1,x_2,....$ is the binary representation of a number in $(0,1)$). \\
+So our set is uncountable. Note that any two distinct elements are one distance apart (with respect to our norm). Now if we put a ball of radius $\frac{1}{4}$ around these points, non of these balls intersect. Since every dense subset of $l^{\infty}$ must have an element in each of these balls, any dense subset must be uncountable. Hence $l^{\infty}$ is separable. \\
+I now prove that $C_0$ is separable. \\
+Consider the set of sequences $\{(x_n): x_i \in \mathbb{Q} \ \forall i, x_n \rightarrow 0 \ \ \
+as \ \ \ n \rightarrow \infty\}$. \\
+This is a countable subset of $c_0$ and it is clearly dense in $c_0$ as $\mathbb{Q}$ is dense in $\mathbb{R}$. \\
+Hence $C_0$ is separable.
+
+
+\clearpage
+\section*{Problem 2}
+We have:
+\begin{eqnarray*}
+|<x_n,y_n> - <x,y>| &=& |<x_n,y_n>-<x_n,y>+<x_n,y>-<x,y>|
+\\ &\le &
+|<x_n,y_n>-<x_n,y>|+|<x_n,y>-<x,y>|
+\\ &\le &
+|<x_n,y_n-y>|+|<x_n-x,y>|
+\\ &\le &
+||x_n||||y_n-y||+||x_n-x||||y|| \ \ By  \ \ C.S 
+\end{eqnarray*}
+Now since $||x_n||,||y|| < \infty $ and $||x_n-x||,||y_n-y| \rightarrow 0$ as $n \rightarrow \infty$ we have that \\
+$|<x_n,y_n> - <x,y>| \rightarrow \infty$ as $n \rightarrow \infty$. 
+
+
+\section*{Problem 3}
+
+
+
+
+
+
+
+\clearpage
+\section*{Problem 4}
+\subsection*{Part a}
+Note that $S_{\perp}$ the intersection of inverse images of the closedset $\{0\}$ of the maps\\ 
+$i_s : x \rightarrow <x,s>$ for every element of $S$. \\
+$$S_{\perp} = \bigcap_{s \in S} i_s^{-1}(\{0\})$$
+Since $i_s$ is continious, $S_{\perp}$ is the intersection of closed sets and is therefore closed. \\
+$\bar{span(S)}$ closed by definition. 
+\subsection*{Part b}
+If $x \in \ span(S)$ then $x=\sum_{k=1}^{\infty} <x,s_i>s_i$ for some $s_i$'s in $S$. \\
+Now if $x \in S_{\perp}$ then $<x,s_i>=0$ for all $i$ and therefore
+$x=\sum_{k=1}^{\infty} <x,s_i>s_i=0$. \\
+Hence $S_{\perp} \cap \bar{span(S)}= \{0\}$.
+\subsection*{Part c}
+Since $H$ is separable, it is second countable and second countability passes to susets and a hilbert space is separable if and only if it is second countable. Hence every subset of $H$ is separable.
+\subsection*{Part d}
+Let $\{e_n\}$ be a basis for $S$. We can extend this basis to get $\{e_n\} \cup \{f_k\}$ a basis for $H$. (Note that these are countable sets because $H$ is separable). \\
+Let $x \in H$. We can write $x = \sum_n<x,e_n> e_n + \sum_k <x,f_k>f_k$. \\
+Let $z= \sum_n<x,e_n> e_n$ and $y=\sum_k <x,f_k>f_k$. \\
+Clearly $z \in \bar{span(S)}$. I need to show that $y \in S^{\perp}$. \\
+Let $s=\sum_n a_ne_n \in S$. We have:
+$$<y,s>=<\sum_k <x,f_k>f_k,\sum_n a_ne_n>=\sum_k <x,f_k> \sum_n a_n <e_n,f_k>=0$$
+Thus $y \in S^{\perp}$. \\
+Now assume $x = y'+z'$ where $y' \in S^{\perp}$ and $z'  \in  \bar{span(S)}$. We have:\\
+$y-y'=z-z' \in S^{\perp} \cap  \bar{span(S)} = \{0\}$. So $y=y'$ and $z=z'$. \\
+Thus $y$ and $z$ are unique. \\
+
+\clearpage
+\section*{Bonus}
+Assume such a measurable set exists. Let $0 < \epsilon < m(A)$.\\
+Let $O$ be an open set with $A \subset O$ such that $m(O\setminus A) < \epsilon$. Then $m(A \cap O)=m(A)=\frac{m(O)}{2}$. \\
+but $m(O \setminus A)=m(O)-m(A)=\frac{m(O)}{2}=m(A) <\epsilon$. \\
+This is a contradiction because $\epsilon < m(A)$.
+
+
 
 
 \end{document}

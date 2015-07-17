@@ -9,12 +9,181 @@
 \begin{center}
   {\Large\bf University of Waterloo}\\
   \vspace{3mm}
-         {\Large\bf Course - Summer 2015}\\
+         {\Large\bf Algebraic geometry - Summer 2015}\\
          \vspace{2mm}
-                {\Large\bf Assignment #}\\
+                {\Large\bf Assignment 5}\\
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
+\section*{Problem 1}
+\subsection*{Part a}
+Write $p=(a,b)$. Set $X=x-a$ and $Y=y-b$ so that $p$ corresponds to $(0,0)$ in the
+$(X,Y)$-plane. Then $f(X,Y)$ has no constant since $p=(0,0,) \in V(f)$ and it has a non-zero linear part since $X$ is smooth at $p=(0,0)$. \\
+Write $f=aX+bY+(\deg \ge 2  \ \ terms)$. We know that $T_p(X)=V(aX+bY)$. \\
+Let $h=cX+dY \in k[X,Y]$ (no constant term so that $h(p)=0$) such that
+$cX+dY \not= aX+bY$ (so that $V(h)$ is not tangent to $C$ at $p$). \\
+I need to prove $M_p(X)=<\bar{h}>$.\\
+Since $aX+bY \not=0$ we can assume WLOG that $b \not=0$. Then we know that
+$M_p(X)=<\bar{x}>$. So we can write $\bar{Y}=g\bar{X}$ since $\bar{Y} \in M_p(X)$.
+We have:
+\begin{eqnarray*}
+c\bar{X}+d\bar{Y} = c\bar{X}+dg\bar{X}=\bar{X}(c+dg)
+\end{eqnarray*}
+Thus $M_p(X)=<\bar{h}>$. 
+
+\subsection*{Part b}
+Let $t=\bar{h}$ and $t'=\bar{g}$ be local parameters ($g$ and $h$ are
+homogeneous linear polynomials such that $h= 0$ and $g=0$ are lines through p that are not tangent to $C$ at $p$). \\
+Let $0 \not= z \in O_p(C)$. We have: $z=t^nu=t'^mv$ for some $n,m$ and $u,v$ units. \\
+I need to prove $n=m$. \\
+Since $t$ and $t'$ both generate $M_p(C)$ we have that $t'=tu'$ for unit $u'$. \\
+We have $z=t^nu=(tu')^mv=t^mu'^mv$. Since we are in a PID we can cancel, so\\
+$t^{n-m}=u^{-1}u'^mv$ which is a unit, thus $n=m$.
+
+
+\clearpage
+\subsection*{Part c}
+\begin{enumerate}
+\item[(i)]
+Let $f = \frac{\bar{a}}{\bar{b}}=\frac{\bar{c}}{\bar{d}}$. We can write: \\
+$\frac{\bar{a}}{\bar{b}}=\frac{t^nu}{t^mv}$ and $\frac{\bar{c}}{\bar{d}}=\frac{t^{n'}u'}{t^{m'}v'}$. We have: \\
+\begin{eqnarray*}
+\frac{t^nu}{t^mv}=\frac{t^{n'}u'}{t^{m'}v'} &\Rightarrow &
+t^{n-m}uv^{-1}=t^{n'-m'}u'v'^{-1}
+\end{eqnarray*}
+We can cancel in $PID$'s, so we have:
+$t^{(n-m)-(n'-m')}=u'v'^{-1}vu^{-1}$ which is a unit, thus $n-m=n'-m'$. Hence $ord_p^C$ is well-defined.
+\item[(ii)] If $f$ is a unit then obviously $f=t^0f$ and therefore $ord_p^C=0$. \\
+If $ord_p^C(f)=0$, it means that $f=\frac{\bar{a}}{\bar{b}}$ such that $\bar{a}=t^nu$ and $\bar{b}=t^nv$. So $f=\frac{t^nu}{t^nv}=\frac{u}{v}$ which is a unit.
+\item[(iii)]
+If $f=0$ then we have that $ord_p^C(f)=\infty$. \\
+If $ord_p^C(f)=\infty$ then $f=\frac{\bar{a}}{\bar{b}}$ such that
+$ord_p^C(\bar{a})=\infty$ which implies $\bar{a}=0$ therefore $f=0$.
+\item[(iv)] 
+First we prove it for when $f_1,f_2 \in O_p(C)$. Then $f_1=t^nu$ and $f_2=t^mv$. \\
+So $f_1f_2=t^nut^mv=t^{n+m}uv$ where $uv$ is a unit since $u$ and $v$ are units. Thus
+$ord_p^C(f_1f_2)=n+m=ord_p^C(f_1)+ord_p^C(f_2)$. \\
+Now let $f_1,f_2 \in K(C)$. \\
+We can write $f_1=\frac{\bar{a}}{\bar{b}}$ and $f_2=\frac{\bar{c}}{\bar{d}}$. \\
+We have $\frac{\bar{a}}{\bar{b}}=\frac{t^nu}{t^mv}$ and
+$\frac{\bar{c}}{\bar{d}}=\frac{t^{n'}u'}{t^{m'}v'}$. \\
+$f_1f_2=\frac{\bar{a}\bar{c}}{\bar{b}\bar{d}}=\frac{t^nu{t^{n'}u'}}{t^mvt^{m'}v'}$. \\
+So $ord_p^C(f_1f_2)=(n+n')-(m+m')=(n-m)+(n'-m')=ord_p^C(f_1)+ord_p^C(f_2)$.
+\item[(v)]
+First assume $f_1,f_2 \in O_p(C)$. Look at the taylor expansion of $f_1,f_2$. \\
+$f_1=a_mt^m+a_{m+1}t^{m+1}+....=t^m(a_m+a_{m+1}t+...)$ where $a_m$ is the lowest non-zero term and therefore $(a_m+a_{m+1}t+...)$ is a unit. \\
+Similarly $f_1=a_nt^n+a_{n+1}t^{n+1}+...=t^n(a_n+a_{n+1}t+...)$ where 
+$(a_n+a_{n+1}t+...)$  is a unit. So order of a polynomial is the lowest power of $t$ in polynomial expansion. So $ord_p^C(f_1+f_2) \ge \min \{ord_p^C(f_1),ord_p^C(f_2)\}$.\\
+Now let $f_1,f_2 \in K(C)$. Write $f_1=\frac{\bar{a}}{\bar{b}}$ and $f_2=\frac{\bar{c}}{\bar{d}}$. We have: (I will ommit the bars for residue classes) 
+\begin{eqnarray*}
+ord_p^C(f_1+f_2) &=& ord_p^C(\frac{ad+bc}{bd}) \\ &=&
+ord_p^C(ad+bc)-ord_p^C(bd) \\ &\ge &
+\min \{ord_p^C(ad),ord_p^C(bc)\}-ord_p^C(bd)
+\\ &=&
+\min \{ord_p^C(a)+ord_p^C(d),ord_p^C(b)+ord_p^C(c)\}-(ord_p^C(b)+ord_p^C(d))
+\\ &\ge &
+\min \{ord_p^C(f_1),ord_p^C(f_2)\}
+\end{eqnarray*}
+\end{enumerate}
+
+
+\clearpage
+\section*{Problem 2}
+\subsection*{Part a}
+Assume $C=V(f)$ where $f=gh$ for non-constant $g,h \in k[x,y]$. 
+So $C=V(g) \cup V(h)$. \\
+Let $p \in V(g) \cap V(h)$. Now we have:\\
+$\nabla(f)(p)=(f_x(p),f_y(p))=(g_x(p)h(p)+h_x(p)g(p),g_y(p)h(p)+h_y(p)g(p))=0$
+because \\
+$h(p)=g(p)=0$. Thus $C$ is singular at $p$.
+\subsection*{Part b}
+By propert (vi), $I(p,C \cap L)=1$ if and only if $C$ and $L$ intersect transversely at $p$ which happens if and only if $L$ is not the tangent line to $C$ at $p$, otherwise
+$I(p,C \cap L) \ge m_p(C)m_p(L)$ and we have that $m_p(C)=m_p(L)=1$ since $L$ is linear and $C$ is smooth at $p$ and also $I(p,C \cap L) \not=1$. Thus
+$I(p,C \cap L) \ge 2$.
+\subsection*{Part c}
+Since $I(p,L_1 \cap C) \ge 2$ and $I(p,L_2 \cap C) \ge 2$, by part (b) we have that both $L_1$ and $L_2$ are tangent lines to $C$ at $p$ and since $L_1$ and $L_2$ are distinct tangent lines to $C$ at $p$, $C$ does not have a linear part and therefore $C$ is singular at $p$.
+\subsection*{Part d}
+Let $X=x-1$ and $Y=y$. Then $C=V((X+1)^2-1-Y^3))=V(X^2+2X+Y^3)$ and
+$C'=V((X+1)^2-1+2Y^4)=V(X^2+2X+2Y^4)$. Now $p=(0,0)$ and we need to find 
+$I(p,C \cap C')$.  \\
+Since $X=0$ is tangent to $C$ at $p=(0,0)$, $Y \in O_p(C)$ is a local parameter. \\
+Now note that $\bar{X^2}+2\bar{X}=\bar{Y^3}$ in $O_p(C)$, so
+$\bar{X^2}+2\bar{X}+2\bar{Y^4}=\bar{Y^3}+2\bar{Y^4}=\bar{Y^3}(1+2\bar{Y})$
+where $(1+2\bar{Y})$ is a unit, thus $ord_p^C(X^2+2X+2Y^4)=3$.
+Hence $I(p,C \cap C')=3$.
+
+\clearpage
+\section*{Problem 3}
+\subsection*{part a}
+We have that $ord_p^C(z)=0$ if and only if $z$ is a unit in $O_p(C)$. So
+ $ord_p^C(z) \not= 0$ if and only if $z$ is not a unit in $O_p(C)$ which hapens if and only if $p$ is either a zero of $z$ or a poleof $z$. So the divisor is well-defined and it's support is the set of all zeroes and poles of $z$.\\
+Assume $div(z)=0$. So $z$ has no poles which means $z \in \Gamma(C)$ and $z$ has no zeroes which forces $z=c$ for some constant $c$. \\
+\subsection*{Part b}
+Zeroes of $z$ are points with $y=0$. If $y=0$ then $x^3=x$. Thus the zero set of $z$ is $\{(0,0),(-1,0),(1,0)\}$. The pole set of $z$ could possibly be $(1,0)$ but
+$z=\frac{\bar{y}}{\bar{x}-1}=\frac{\bar{y}}{\bar{x^3}-\bar{y^4}}$ so $(1,0)$ is defined for $z$.\\
+We now need to compute $ord_p^C(z)$ for $p \in \{(0,0),(-1,0),(1,0)\}$. \\
+We first find it for $p=(0,0)$.
+Since $y^4-x^3+x$ has linear part $x$, we have that $M_p(C)=<\bar{y}>$. \\
+We have that $z = \bar{y}(\frac{1}{\bar{x}-1})$ where $(\frac{1}{\bar{x}-1})$ is a unit. So $ord_p^C(z)=1$.\\
+Now we compute the order for $p=(1,0)$. For this we find an affine coordinate change so that $p=(0,0)$. \\
+Let $X=x-1$ and $Y=y$. $\bar{Y}$ can still generate $M_p(C)$.
+We have $z=\bar{Y}(\frac{1}{\bar{X}-2})$ where $(\frac{1}{\bar{X}-2})$ is a unit.
+So $or_p^C(z)=1$ again.\\
+Now we compute the order for $p=(-1,0)$. \\
+Let $X=X+1$ and $Y=y$. Now $ord_p^C(z)=ord_p^C(\bar{Y})-ord_p^C(\bar{X})$.
+We know that $ord_p^C(\bar{Y})=1$. \\
+We have that $C=V(Y^4-(X+1)^3+X+1)=V(Y^4-X^3-3X^2-2X)$.
+So $\bar{Y^4}(\frac{1}{\bar{X^2}+3\bar{X}+2})=\bar{X}$ where
+$(\frac{1}{\bar{X^2}+3\bar{X}+2})$ is a unit. So $ord_p^C(\bar{X})=4$. Thus
+$ord_p^C(z)=-3$. \\
+Hence $div(z)=(0,0)+(1,0)+-3(-1,0)$.
+\subsection*{part c}
+First note that $C \cap C'=\{(1,-1)\}$.Let $p=(1,-1)$. I need to find
+$I(p,C \cap C')$.\\
+We first find an affine coordinate change so that $p=(0,0)$. \\
+Let $X=x-1$ and $Y=y+1$. Then $p=(0,0)$. \\
+$C=V(X+1+(Y-1)^3)=V(X+Y^3-3Y^2+3Y)$.\\
+$C'=V((Y-1)^3-(Y-1)(X+1))=V(Y^3-3Y^2+4Y+XY-X-2)$. \\
+Note that $Y^3-3Y^2+4Y+XY-X-2$ is a unit in $O_p(C)$ so $I(p,C \cap C')=0$ and hence the divisor is a zero divisor.
+
+
+
+\clearpage
+\section*{Problem 4}
+\subsection*{Part a}
+We have that $X=V(y^2-x^3-x^2)$ is singular at the origin because $y^2-x^3-x^2$ does not have a linear part. \\
+We need to show the blow up of $X$ is a smooth curve in $\mathbb{A}^3$.\\
+Blow up of $X$ is $V(y^2-x^3-x^2,y-xu)=V(u^2-x-1,y-ux)$. \\
+Let $f=u^2-x-1$ and $g=y-ux$. We have:
+\begin{eqnarray*}
+jac(f,g) &=&
+\begin{bmatrix}
+-1 & 0 & 2u \\
+-u & 1 & -x
+\end{bmatrix}
+\end{eqnarray*}
+This matrix has Rank $2$ everywhere, so the blow up is a smooth curve.
+\subsection*{Part b}
+Note that $y^3-x^5$ has no linear term therefore $C$ is singular at $(0,0)$.\\
+The blow up of $Y$ is $V(y^3-x^5,y-xu)=V(u^3-x^2,y-xu)$. \\
+Let $f=u^3-x^2$ and $g=y-xu$. We have: 
+\begin{eqnarray*}
+jac(f,g)(0,0,0) &=& 
+\begin{bmatrix}
+-2x & 0 & 3u^2 \\
+-u & 1 & -x
+\end{bmatrix}
+(0,0,0) \\&=&
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 &1 & 0
+\end{bmatrix}
+\end{eqnarray*}
+This matrix has Rank $1$ so the blow-up is not singular at $(0,0,0)$. \\
+We blow this up again to get $V(u^3-x^2,y-xu,x-t_1y,u-t_2y)\subset \mathbb{A}^5$.
+
+
+
 
 
 \end{document}

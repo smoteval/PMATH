@@ -9,12 +9,246 @@
 \begin{center}
   {\Large\bf University of Waterloo}\\
   \vspace{3mm}
-         {\Large\bf Course - Summer 2015}\\
+         {\Large\bf Pmath 450 - Summer 2015}\\
          \vspace{2mm}
-                {\Large\bf Assignment #}\\
+                {\Large\bf Assignment 5}\\
                 \vspace{3mm}
                 \textbf{Sina Motevalli 20455091}
 \end{center}
+\section*{Problem 1}
+\subsection*{Part a}
+We write the fourire series of $f$ to find out what $A_n$ and $B_n$ are:
+\begin{eqnarray*}
+f &=& \sum_{-\infty}^{\infty} \hat{f}(n)e^{inx} \\ &=&
+\hat{f}(0)+\sum_{n=1}^{\infty} \hat{f}(n)e^{inx}+\hat{f}(-n)e^{-inx}
+\\ &=&
+\hat{f}(0)+\sum_{n=1}^{\infty}
+[\hat{f}(n)(\cos nx+i\sin nx)]+[\hat{f}(-n)(\cos -nx+i\sin -nx)]
+\\ &=&
+\hat{f}(0)+\sum_{n=1}^{\infty}
+[\hat{f}(n)(\cos nx+i\sin nx)]+[\hat{f}(-n)(\cos nx-i\sin nx)]
+\\ &=&
+\hat{f}(0)+\sum_{n=1}^{\infty} \cos nx (\hat{f}(n)+\hat{f}(-n))+\sin nx (i\hat{f}(n)-i\hat{f}(-n))
+\end{eqnarray*}
+So we can see that
+$A_n= \hat{f}(n)+\hat{f}(-n)$ and $B_n=i(\hat{f}(n)-\hat{f}(-n))$. Now we have:
+\begin{eqnarray*}
+A_n &=& \hat{f}(n)+\hat{f}(-n) \\ &=&
+\frac{1}{2\pi}\int_0^{2\pi} f(x)e^{-inx}dx +\frac{1}{2\pi}\int_0^{2\pi} f(x)e^{inx}dx
+\\ &=&
+\frac{1}{\pi}\int_0^{2\pi} f(x) \frac{e^{-inx}+e^{inx}}{2}dx
+\\ &=&
+\frac{1}{\pi}\int_0^{2\pi} f(x) \cos nxdx
+\end{eqnarray*}
+
+\clearpage
+We also have that
+\begin{eqnarray*}
+B_n &=& i(\hat{f}(n)-\hat{f}(-n)) \\&=&
+\frac{i}{2\pi}\int_0^{2\pi} f(x)e^{-inx}dx -\frac{i}{2\pi}\int_0^{2\pi} f(x)e^{inx}dx
+\\ &=&
+\frac{i}{2\pi}\int_0^{2\pi} f(x) (e^{-inx}-e^{inx})dx
+\\ &=&
+\frac{-1}{2i\pi}\int_0^{2\pi} f(x) (e^{-inx}-e^{inx})dx \\ &=&
+\frac{1}{2i\pi}\int_0^{2\pi} f(x) (e^{inx}-e^{-inx})dx \\ &=&
+\frac{1}{\pi}\int_0^{2\pi} f(x) \frac{e^{inx}-e^{-inx}}{2i}dx \\ &=&
+\frac{1}{\pi}\int_0^{2\pi} f(x) \sin nx dx
+\end{eqnarray*}
+
+\subsection*{Part b}
+Assume $f$ is even then we have
+\begin{eqnarray*}
+B_n &=& \frac{1}{\pi}\int_0^{2\pi} f(x) \sin nx dx \\ &=&
+ \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \sin nx dx \\ &=&
+  \frac{1}{\pi}\int_{-\pi}^{0} f(x) \sin nx dx  +
+   \frac{1}{\pi}\int_{0}^{\pi} f(x) \sin nx dx 
+\end{eqnarray*}
+Since $f$ is even and $\sin $ is odd, we have that $f(x)\sin nx$ is an odd function so\\
+$\frac{1}{\pi}\int_{-\pi}^{0} f(x) \sin nx dx=-\frac{1}{\pi}\int_{0}^{\pi} f(x) \sin nx dx$. Thus\\
+$B_n= \frac{1}{\pi}\int_{-\pi}^{0} f(x) \sin nx dx  +
+   \frac{1}{\pi}\int_{0}^{\pi} f(x) \sin nx dx =0$.
+ 
+\clearpage
+\section*{Problem 2}
+We have:
+\begin{eqnarray*}
+||D_N||_p^p &=& \frac{1}{2\pi} \int_{0}^{2\pi} |\sum_{k=-N}^N e^{ikx}|^p \\ &=&
+\frac{1}{2\pi} \int_{0}^{2\pi} |\sum_{k=-N}^N e^{ikx}|^{p-1}|\sum_{k=-N}^N e^{ikx}|
+\\ &\le &
+\frac{1}{2\pi} \int_{0}^{2\pi} |\sum_{k=-N}^N e^{ikx}|^{p-1}|\sum_{k=-N}^N e^{ikx}|
+\\ &=&
+\frac{1}{2\pi} || |\sum_{k=-N}^N e^{ikx}|^{p-1}|\sum_{k=-N}^N e^{ikx}|||_1
+\\ &\le &
+\frac{1}{2\pi}|| (\sum_{k=-N}^N e^{ikx})^{p-1}||_1 ||\sum_{k=-N}^N e^{ikx}|||_{\infty}
+\ \ \  by  \  \  Holder
+\\ &=&
+c \frac{1}{2\pi} ||\sum_{k=-N}^N e^{ikx}||_1   \ \ c \ \ constant
+\\ &=&
+\frac{c}{2\pi} \int_{0}^{2\pi} |\sum_{k=-N}^N e^{ikx}|^{p-1} \\ &\le &
+\frac{c}{2\pi} \int_{0}^{2\pi} (\sum_{k=-N}^N |e^{ikx}|)^{p-1} \\ &=&
+\frac{c}{2\pi} \int_{0}^{2\pi} (\sum_{k=-N}^N 1)^{p-1} \\ &=&
+\frac{c}{2\pi} \int_{0}^{2\pi} (2N+1)^{p-1} \\ &=&
+\frac{c}{2\pi} (2N+1)^{p-1}\int_{0}^{2\pi} 1 \\ &=&
+(2N+1)^{p-1}
+\end{eqnarray*}
+So $||D_N||_p \le (2N+1)^{\frac{p-1}{p}}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\section*{Problem 3}
+\subsection*{Part a}
+I will use problem 1 for this. So $S(f)=A_0+\sum_{n=1}^{\infty}A_n\cos nx+ B_n\sin nx$.
+\\
+First note that since $f(x)=x$ is odd and $\cos nx$ is even, we have that $A_n=0$ for all
+$n \not=0$.  \\
+So I need to find $B_n$'s and $A_0=\hat{f}(0)$. 
+\begin{eqnarray*}
+B_n &=& 
+\frac{1}{\pi} \int_0^{2\pi} f(x) \sin nx dx \\ &=&
+\frac{1}{\pi} \int_0^{2\pi} x \sin nx dx \\ &=&
+\frac{1}{\pi} \frac{\sin (2\pi n)-2\pi n\cos (2\pi n)}{n^2} \\&=&
+\frac{1}{\pi} \frac{-2\pi n}{n^2} \\ &=&
+\frac{-2}{n}
+\end{eqnarray*}
+We also know that $A_0=\hat{f}(0)=\frac{1}{2\pi}\int_0^{2\pi} x=\frac{1}{2\pi}2\pi^2=\pi$. \\
+So the fouries series is
+\begin{eqnarray*}
+S(f) &=& A_0+\sum_{n=1}^{\infty}A_n\cos nx+ B_n\sin nx \\
+&=& A_0+\sum_{n=1}^{\infty} B_n\sin nx \\ &=&
+\pi+\sum_{n=1}^{\infty} \frac{-2}{n}\sin nx \\&=&
+\pi-2\sum_{n=1}^{\infty}\frac{\sin nx}{n}
+\end{eqnarray*}
+
+\clearpage
+\subsection*{Part b}
+First using the method in part (a), we find the fourier series of $f(x)=x^2$.\\
+$S(f)=A_0+\sum_{n=1}^{\infty}A_n\cos nx+ B_n\sin nx$.
+\\
+First note that since $f(x)=x^2$ is even $B_n=0$ for all $n$.
+So I need to find $A_n$'s. \\
+\begin{eqnarray*}
+A_n &=&\frac{1}{\pi}\int_0^{2\pi} x^2 \cos nx dx \\ &=&
+\frac{1}{\pi} \frac{(4\pi^2n^2-2)\sin (2\pi n)+4\pi n\cos (2\pi n)}{n^3} \\ &=&(-1)^2 \frac{4}{n^2}
+\end{eqnarray*}
+Also $A_0=\hat{f}(0)=\frac{1}{2\pi}\int_0^{2\pi} x^2dx=\frac{ \pi^2}{3}$. \\
+So we have $f(x)=\frac{ \pi^2}{3}+\sum_{n=1}^{\infty} (-1)^n\frac{4}{n^2}\cos nx$.\\
+Since $f(\pi)=\pi^2$ we have:
+\begin{eqnarray*}
+\pi^2 &=& \frac{ \pi^2}{3}+\sum_{n=1}^{\infty} (-1)^n\frac{4}{n^2}\cos n\pi
+\\ &=&
+ \frac{ \pi^2}{3}+\sum_{n=1}^{\infty} (-1)^n(-1)^n\frac{4}{n^2}\\&=&
+  \frac{ \pi^2}{3}+4\sum_{n=1}^{\infty} \frac{1}{n^2}
+\end{eqnarray*}
+Now we have $\sum_{n=1}^{\infty} \frac{1}{n^2}=\frac{\pi^2}{4}-\frac{\pi^2}{12}=\frac{\pi^2}{6}$.
+
+\clearpage
+\section*{Problem 4}
+First assume that $f$ is cont (so $f$ is uniformly cont since $[0,2\pi]$ is compact). Let $\epsilon > 0$. By continuity of $f$ there exist
+$\delta >0$ such that if $|t| < \delta$ then $|f_t-f|< \epsilon$. Now we have:
+\begin{eqnarray*}
+||f_t-f||_p^p &=& \frac{1}{2\pi}\int_o^{2\pi} |f_t-f|\\ &<&
+\frac{1}{2\pi} \int_o^{2\pi} \epsilon \\ &=&
+\frac{1}{2\pi} \epsilon \int_o^{2\pi}  1 \\&=& \epsilon
+\end{eqnarray*}
+Now let $f \in L^p(\mathbb{T})$. Let $g$ be a cont function such that $||f-g||_p < \epsilon$. By continuity of $g$ choose $\delta >0$ such that if $|t|<\delta$ then $||g-g_t||_p < \epsilon$. We have:
+\begin{eqnarray*}
+||f_t-f||_p &=& ||f_t-g_t+g_t-g+g-f||_p \\ &\le &
+||f_t-g_t||_p+||g_t-g||_p+||g-f||_p \\ &<&
+\epsilon +\epsilon +\epsilon
+\end{eqnarray*}
+This fails for $p=\infty$ because for instance look at $f=X_{[0,1]}$. Then $f_t$ converges to $f$ if and only if $f$ is uniformly cont (or cont here since $[0,2\pi]$ is compact). 
+
+\clearpage
+\section*{Problem 5}
+\subsection*{Part a}
+Let $f \in A(\mathbb{T})$.
+Let $x \in \mathbb{T}$. Let $\epsilon >0$. We can choose $N$ such that
+$\sum_{|k|>N} |\hat{f}(k)|< \epsilon$. Then for $n,m > N$ we have:
+\begin{eqnarray*}
+|S_n(f)-S_m(f)| &=& |\sum_{n < |k| \le m} \hat{f}(k)e^{ikx}| \\ &\le &
+\sum_{n < |k| \le m} |\hat{f}(k)e^{ikx}| \\ &=&
+\sum_{n < |k| \le m} |\hat{f}(k)| < \epsilon
+\end{eqnarray*}
+So $S_n(f)$ is cauchy therefore convergent. It converges to $f$.
+\begin{eqnarray*}
+||S_n(f)-f||_{\infty} &=& \sup_{x \in \mathbb{T}}|\sum_{k>n} \hat{f}(k)e^{ikx}| 
+\\ &\le &
+\sum_{k>n} |\hat{f}(k)| |e^{ikx}| \\ &=&
+\sum_{k>n} |\hat{f}(k)| \rightarrow 0  \ \ as \ \ n \rightarrow \infty
+\end{eqnarray*}
+Since $S_n(f)$ is cont and converges to $f$ uniformly, $f$ is cont.
+\subsection*{Part b}
+Let $f,g \in L^2(\mathbb{T})$. So $\sum_n |\hat{f}(n)|^2,\sum_n |\hat{g}(n)|^2 < \infty$. So we have that\\
+$\sum_n |\hat{f}(n)\hat{g}(n)| \le (\sum_n |\hat{f}(n)|^2)
+(\sum_n |\hat{g}(n)|^2) < \infty$. Now we have:
+\begin{eqnarray*}
+\sum_n |\hat{f*g}(n)| &=& \sum_n |\hat{f}(n)\hat{g}(n)| <  \infty
+\end{eqnarray*}
+Hence $f*g \in A(\mathbb{T})$.
+
+\clearpage
+\subsection*{Part b}
+\begin{enumerate}
+\item[i] 
+Lets show that $|P_{n+1}(t)|^2+|Q_{n+1}(t)|^2=2(|P_n(t)|^2+|Q_n(t)|^2)$.  \\
+$|P_{n+1}(t)|^2+|Q_{n+1}(t)|^2=2(|P_n(t)|^2+|Q_n(t)|^2)$. We have:
+\begin{eqnarray*}
+LHS &=& |P_{n+1}(t)|^2+|Q_{n+1}(t)|^2 \\&=& P_{n+1}(t)\overline{P_{n+1}(t)}+Q_{n+1}(t)\overline{Q_{n+1}(t)} \\ &=&
+(P_n(t)+e^{i2^nt}Q_n(t))\overline{(P_n(t)+e^{i2^nt}Q_n(t))} +
+(P_n(t)-e^{i2^nt}Q_n(t)) \overline{(P_n(t)-e^{i2^nt}Q_n(t))}
+\\ &=&
+P_n(t)\overline{P_n(t)}+Q_n(t)\overline{Q_n(t)}+
+P_n(t)\overline{P_n(t)}+Q_n(t)\overline{Q_n(t)} \\ &=&
+2(|P_n(t)|^2+|Q_n(t)|^2)
+\end{eqnarray*}
+Now we show by induction that $|P_n(t)|^2+|Q_n(t)|^2=2^{n+1}$.\\
+Base case: $|P_0(t)|^2+|Q_o(t)|^2=1+1=2$.\\
+Assume it is true for $0,1,2,..,n-1$. We need to show
+$|P_n(t)|^2+|Q_n(t)|^2=2^{n+1}$. 
+\begin{eqnarray*}
+|P_n(t)|^2+|Q_n(t)|^2  &=& 2(|P_{n-1}|^2+|Q_{n-1}|^2) \\&=&
+2(2^n) \\ &=&
+2^{n+1}
+\end{eqnarray*}
+We also have:
+\begin{eqnarray*}
+|2P_n(t)|^2 &=& |P_{n+1}(t)+Q_{n+1}(t)|^2 \\ &\le &
+|P_{n+1}(t)|^2+|Q_{n+1}(t)|^2 \\ &=&
+2^{n+2}
+\end{eqnarray*}
+So $||P_n(t)||_{\infty} \le 2^{\frac{n+1}{2}}$.
+
+\item[(ii)]
+Let $|k| < 2^n$. We have:
+\begin{eqnarray*}
+\hat{P_n}(k) &=& \frac{1}{2\pi} \int_0^{2\pi} P_n(x)e^{ikx} \\
+\hat{P_{n+1}}(k) &=&
+ \frac{1}{2\pi} \int_0^{2\pi} (P_n(x)+e^{i2^nx}Q_n(X))e^{ikx} \\ &=&
+\frac{1}{2\pi} \int_0^{2\pi} P_n(x)e^{ikx} +e^{i2^nx}Q_n(X)e^{ikx} \\ &=&
+\frac{1}{2\pi} \int_0^{2\pi} P_n(x)e^{ikx} +\int_0^{2\pi} Q_n(X)e^{ikx}e^{i2^nx} 
+\\ &=&
+\frac{1}{2\pi} \int_0^{2\pi} P_n(x)e^{ikx}  \\ &=&
+\hat{P_n}(k)
+\end{eqnarray*}
+\end{enumerate}
+
+
+
+
+   
 
 
 \end{document}
